@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "David's Portfolio",
   description: "Showcasing my projects and resume",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -73,7 +76,7 @@ export default function RootLayout({
         {/* Footer */}
         <footer className="border-t bg-white mt-12">
           <div className="max-w-6xl mx-auto p-4 text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} David. All rights reserved.
+            © {new Date().getFullYear()} David Zeff.
           </div>
         </footer>
       </body>
