@@ -367,12 +367,12 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <Mail className="w-5 h-5" />
-            Email Me
+            dpzeff@gmail.com
           </motion.a>
 
           {/* GitHub */}
           <motion.a
-            href="https://github.com/your-github"
+            href="https://github.com/DavidZeff1"
             target="_blank"
             rel="noopener noreferrer"
             variants={{
@@ -393,7 +393,7 @@ export default function HomePage() {
 
           {/* LinkedIn */}
           <motion.a
-            href="https://linkedin.com/in/your-linkedin"
+            href="https://www.linkedin.com/in/david-zeff-computerscience141592/"
             target="_blank"
             rel="noopener noreferrer"
             variants={{
