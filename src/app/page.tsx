@@ -22,7 +22,7 @@ export default function HomePage() {
       {/* Hero */}
       <section
         id="hero"
-        className="flex flex-col items-center text-center py-24"
+        className="flex flex-col items-center text-center py-24 space-y-10"
       >
         <motion.div
           initial="hidden"
@@ -30,6 +30,27 @@ export default function HomePage() {
           variants={staggerContainer}
           className="space-y-6"
         >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+              },
+            }}
+            className="flex justify-center"
+          >
+            <Image
+              src="/images/me.png"
+              alt="David portrait"
+              width={160}
+              height={160}
+              className="rounded-full shadow-lg border-4 border-white"
+              priority
+            />
+          </motion.div>
+
           <motion.h1
             variants={{
               hidden: { opacity: 0, y: 30 },
@@ -43,6 +64,7 @@ export default function HomePage() {
           >
             {`Hi, I'm David`}
           </motion.h1>
+
           <motion.p
             variants={{
               hidden: { opacity: 0, y: 30 },
@@ -144,16 +166,16 @@ export default function HomePage() {
                     </div>
                     <div className="flex-1 text-center">
                       <div className="bg-white rounded-md px-4 py-1 text-xs text-gray-600 max-w-xs mx-auto border">
-                        {project.title.toLowerCase().replace(/\s+/g, "")}.com
+                        {project.demo}
                       </div>
                     </div>
                   </div>
 
                   {/* Screenshot */}
-                  <div className="relative h-64 lg:h-[400px] overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden bg-black rounded-2xl">
                     <motion.video
                       src={project.video}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       autoPlay
                       loop
                       muted
