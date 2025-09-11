@@ -347,7 +347,7 @@ export default function HomePage() {
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            <Linkedin className="w-5 h-5" />
+            <Github className="w-5 h-5" />
             GitHub
           </motion.a>
 
