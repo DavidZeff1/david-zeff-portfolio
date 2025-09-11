@@ -1,35 +1,59 @@
+/* Tailwind v4 core (no @tailwind base/components/utilities needed) */
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+/* Make `dark:` utilities respond to the `.dark` class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------- Theme tokens ---------------- */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light; /* correct native form controls for light */
+}
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  color-scheme: dark; /* correct native form controls for dark */
 }
 
+/* Optional: expose tokens to Tailwind via v4 @theme */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(
+    --font-geist-sans,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Noto Sans",
+    "Helvetica Neue",
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji"
+  );
+  --font-mono: var(
+    --font-geist-mono,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace
+  );
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Optional custom global styles */
+/* ------------- Base (keep it minimal) ------------- */
+/* Do NOT hardcode body background/text here—Tailwind classes in your layout control that */
 html,
 body {
   scroll-behavior: smooth;
+}
+
+/* Optional niceties */
+::selection {
+  background: rgba(37, 99, 235, 0.25); /* blue-600/25 */
 }
