@@ -5,6 +5,7 @@ import { projects } from "@/lib/projects";
 import Image from "next/image";
 import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import { CSSProperties } from "react";
+import Link from "next/link";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -20,66 +21,55 @@ export default function HomePage() {
       {/* Hero */}
       <section id="hero" className="py-24">
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 items-center gap-12 px-6">
-          {/* LEFT: code-looking text */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="order-2 lg:order-1"
-          >
-            <CodeHeroCard />
-          </motion.div>
+          {(() => {
+            const tile =
+              "w-full max-w-[28rem] sm:max-w-[32rem] lg:max-w-[38rem] aspect-square";
+            return (
+              <>
+                {/* LEFT: code block */}
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={staggerContainer}
+                  className="order-2 lg:order-1 flex justify-center"
+                >
+                  <div className={tile}>
+                    <CodeHeroCard className="h-full" />
+                  </div>
+                </motion.div>
 
-          {/* RIGHT: profile image */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="order-1 lg:order-2 flex justify-center relative"
-          >
-            <div
-              aria-hidden
-              className="absolute -z-10 w-[22rem] h-[22rem] lg:w-[28rem] lg:h-[28rem] rounded-full blur-3xl bg-gradient-to-br from-blue-300/40 via-indigo-200/40 to-fuchsia-200/30 translate-x-4 -translate-y-6"
-            />
-            <Image
-              src="/images/me2.png"
-              alt="David portrait"
-              width={350}
-              height={350}
-              className="rounded-2xl shadow-2xl ring-4 ring-white dark:ring-slate-800"
-              priority
-            />
-          </motion.div>
+                {/* RIGHT: image */}
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={staggerContainer}
+                  className="order-1 lg:order-2 flex justify-center relative"
+                >
+                  {/* background blob (optional) */}
+                  <div
+                    aria-hidden
+                    className="absolute -z-10 w-[80%] h-[80%] rounded-full blur-3xl bg-gradient-to-br from-blue-300/40 via-indigo-200/40 to-fuchsia-200/30 translate-x-4 -translate-y-6"
+                  />
+
+                  {/* same-sized box */}
+                  <div className={`${tile} relative`}>
+                    <div className="absolute inset-0 rounded-2xl overflow-hidden ring-4 ring-white dark:ring-slate-800 shadow-2xl">
+                      <Image
+                        src="/images/me2.png"
+                        alt="David portrait"
+                        fill
+                        sizes="(min-width:1024px) 26rem, (min-width:640px) 24rem, 22rem"
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              </>
+            );
+          })()}
         </div>
       </section>
-
-      {/* Resume */}
-      <motion.section
-        id="resume"
-        className="text-center space-y-6"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, y: 30 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
-          },
-        }}
-      >
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-          Resume
-        </h2>
-        <a
-          href="/David-Zeff-Resume-English.pdf"
-          download
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
-        >
-          Download Resume (PDF)
-        </a>
-      </motion.section>
 
       {/* About */}
       <motion.section
@@ -388,15 +378,16 @@ export default function HomePage() {
 }
 
 /* ---------- CodeHeroCard (keeps dark code window look in both themes) ---------- */
-function CodeHeroCard() {
+function CodeHeroCard({ className = "" }: { className?: string }) {
   return (
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
       }}
-      className="relative"
+      className={`relative h-full ${className}`}
     >
+      {/* glows */}
       <div
         aria-hidden
         className="pointer-events-none absolute -inset-12 bg-gradient-to-tr from-blue-500/30 via-cyan-400/20 to-fuchsia-500/20 blur-3xl"
@@ -406,8 +397,10 @@ function CodeHeroCard() {
         className="pointer-events-none absolute -inset-6 bg-gradient-to-br from-violet-500/20 via-transparent to-emerald-500/20 blur-xl"
       />
 
-      <div className="relative overflow-hidden rounded-2xl bg-slate-900/95 ring-1 ring-slate-700/50 shadow-2xl backdrop-blur-sm">
-        <div className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-slate-800/80 to-slate-800/60 border-b border-slate-700/50">
+      {/* window (make it stretch) */}
+      <div className="relative h-full overflow-hidden rounded-2xl bg-slate-900/95 ring-1 ring-slate-700/50 shadow-2xl backdrop-blur-sm flex flex-col">
+        {/* title bar */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-slate-800/80 to-slate-800/60 border-b border-slate-700/50 shrink-0">
           <div className="flex gap-2">
             <span className="h-3 w-3 rounded-full bg-red-500 shadow-sm" />
             <span className="h-3 w-3 rounded-full bg-yellow-500 shadow-sm" />
@@ -418,7 +411,8 @@ function CodeHeroCard() {
           </span>
         </div>
 
-        <div className="relative p-6">
+        {/* content */}
+        <div className="relative p-6 flex-1 min-h-0">
           <pre className="text-slate-300 font-mono text-xl leading-7">
             <span className="text-slate-500">{"  <div>"}</span>
             {"\n"}
@@ -432,17 +426,9 @@ function CodeHeroCard() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
           >
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-r from-blue-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent blur-sm opacity-60"
-              >
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight">{`Hello, I'm David`}</h1>
-              </div>
-              <h1 className="relative text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent leading-tight">
-                {`Hello, I'm David`}
-              </h1>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent leading-tight">
+              {`Hello, I'm David`}
+            </h1>
           </motion.div>
 
           <pre className="text-slate-300 font-mono text-xl leading-7 pl-8">
@@ -452,6 +438,17 @@ function CodeHeroCard() {
             {"\n"}
             <span className="text-slate-500">{"</div>"}</span>
           </pre>
+
+          {/* CTA */}
+          <div className="pl-8 pt-4">
+            <a
+              href="/David-Zeff-Resume-English.pdf"
+              download
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+            >
+              Download Resume (PDF)
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>
