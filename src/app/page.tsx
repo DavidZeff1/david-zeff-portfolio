@@ -420,9 +420,9 @@ function CodeHeroCard() {
 
         <div className="relative p-6">
           <pre className="text-slate-300 font-mono text-xl leading-7">
-            <span className="text-slate-500">{"       <div>"}</span>
+            <span className="text-slate-500">{"  <div>"}</span>
             {"\n"}
-            <span className="text-slate-500">{"             <p>"}</span>
+            <span className="text-slate-500">{"       <p>"}</span>
             {"\n \n"}
           </pre>
 
