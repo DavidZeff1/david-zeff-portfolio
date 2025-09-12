@@ -55,7 +55,7 @@ export default function HomePage() {
                   <div className={`${tile} relative`}>
                     <div className="absolute inset-0 rounded-2xl overflow-hidden ring-4 ring-white dark:ring-slate-800 shadow-2xl">
                       <Image
-                        src="/images/me2.png"
+                        src="/images/me3.png"
                         alt="David portrait"
                         fill
                         sizes="(min-width:1024px) 26rem, (min-width:640px) 24rem, 22rem"
