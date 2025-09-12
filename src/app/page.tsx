@@ -91,7 +91,7 @@ export default function HomePage() {
           About Me
         </h2>
         <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          {`I'm a Computer Science student with a passion for building impactful web applications that solve real problems. I thrive on working across the entire stack—from crafting intuitive user interfaces to architecting robust backends and deploying to the cloud.`}
+          {`I'm a Computer Science graduate with a passion for building impactful web applications that solve real problems. I thrive on working across the entire stack—from crafting intuitive user interfaces to architecting robust backends and deploying to the cloud.`}
         </p>
       </motion.section>
 
