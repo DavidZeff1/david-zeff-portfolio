@@ -456,7 +456,7 @@ function CodeHeroCard({ className = "" }: { className?: string }) {
 }
 
 /* ---------- SkillsCarousel (already dark-ready; paths match your /public/skills) ---------- */
-function SkillsCarousel({ speed = 28 }: { speed?: number }) {
+function SkillsCarousel({ speed = 60 }: { speed?: number }) {
   const skills = [
     "React",
     "Next.js",
