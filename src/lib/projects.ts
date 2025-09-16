@@ -84,4 +84,24 @@ export const projects = [
     demo: "https://prisma-clone-steel.vercel.app/",
     github: "https://github.com/DavidZeff1/prisma-clone",
   },
+
+  {
+    title: "Survivor Guy (Unity Game)",
+    description:
+      "A 2D survival game developed in Unity, where the player navigates waves of enemies and manages limited resources to stay alive. The project emphasizes clean architecture and the application of design pattern principles such as Singleton for game management, Observer for event handling, and Factory for spawning enemies. Built to strengthen game development skills with Unity while showcasing the ability to structure scalable and maintainable gameplay systems.",
+    tech: [
+      "Unity Engine",
+      "C#",
+      "2D Game Development",
+      "Object-Oriented Programming (OOP)",
+      "Design Patterns (Singleton, Observer, Factory)",
+      "Game Loop Architecture",
+      "Sprite & Asset Integration",
+      "itch.io Deployment",
+    ],
+    image: "/images/projects/project1.png",
+    video: "/videos/survivor-guy.mp4",
+    demo: "https://gamerdave141592.itch.io/survivor-guy",
+    github: "https://github.com/DavidZeff1/Final-Project",
+  },
 ];
