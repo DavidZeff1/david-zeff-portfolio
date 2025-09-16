@@ -67,4 +67,21 @@ export const projects = [
     demo: "https://davidstechreviews.vercel.app/",
     github: "https://github.com/DavidZeff1/davidstechreviews",
   },
+  {
+    title: "Prisma Clone",
+    description:
+      "A clone of the official Prisma homepage, built to practice modern frontend development and design implementation. Focused on responsive layouts, interactive components, and smooth styling using Next.js, TypeScript, and Tailwind CSS. This project showcases the ability to replicate real-world production designs with clean, maintainable code.",
+    tech: [
+      "Next.js 13 App Router",
+      "TypeScript",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Static Assets & Icons",
+      "Vercel Deployment",
+    ],
+    image: "/images/projects/project1.png",
+    video: "/videos/prisma-clone.mp4",
+    demo: "https://prisma-clone-steel.vercel.app/",
+    github: "https://github.com/DavidZeff1/prisma-clone",
+  },
 ];
