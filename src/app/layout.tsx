@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Analytics } from "@vercel/analytics/next";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,59 +33,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
-            <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-              {/* Logo / Name */}
-              <h1 className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
-                David Zeff
-              </h1>
-
-              <div className="flex items-center gap-6">
-                {/* Nav Links */}
-                <ul className="flex gap-6 text-sm font-medium">
-                  <li>
-                    <Link
-                      href="#hero"
-                      scroll={true}
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
-                    >
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#about"
-                      scroll={true}
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#projects"
-                      scroll={true}
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
-                    >
-                      Projects
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#contact"
-                      scroll={true}
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
-                    >
-                      Contact
-                    </Link>
-                  </li>
-                </ul>
-
-                {/* Theme Toggle */}
-                <ThemeToggle />
-              </div>
-            </nav>
-          </header>
+          <Header />
 
           {/* Page content */}
           <main className="max-w-6xl mx-auto px-4 py-12">{children}</main>

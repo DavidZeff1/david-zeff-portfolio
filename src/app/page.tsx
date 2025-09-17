@@ -412,8 +412,8 @@ function CodeHeroCard({ className = "" }: { className?: string }) {
         </div>
 
         {/* content */}
-        <div className="relative p-6 flex-1 min-h-0">
-          <pre className="text-slate-300 font-mono text-xl leading-7">
+        <div className="relative p-3 sm:p-6 flex-1 min-h-0">
+          <pre className="text-slate-300 font-mono text-base sm:text-xl leading-6 sm:leading-7">
             <span className="text-slate-500">{"  <div>"}</span>
             {"\n"}
             <span className="text-slate-500">{"       <p>"}</span>
@@ -421,17 +421,17 @@ function CodeHeroCard({ className = "" }: { className?: string }) {
           </pre>
 
           <motion.div
-            className="relative -mt-2 mb-4 pl-8"
+            className="relative -mt-2 mb-4 pl-4 sm:pl-8"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent leading-tight">
               {`Hello, I'm David`}
             </h1>
           </motion.div>
 
-          <pre className="text-slate-300 font-mono text-xl leading-7 pl-8">
+          <pre className="text-slate-300 font-mono text-base sm:text-xl leading-6 sm:leading-7 pl-4 sm:pl-8">
             <span className="text-emerald-400">{`      Full-Stack Developer`}</span>
             {"\n\n"}
             <span className="text-slate-500">{"     </p>"}</span>
@@ -440,11 +440,11 @@ function CodeHeroCard({ className = "" }: { className?: string }) {
           </pre>
 
           {/* CTA */}
-          <div className="pl-8 pt-4">
+          <div className="pl-4 sm:pl-8 pt-3 sm:pt-4">
             <a
               href="/David-Zeff-Resume-English.pdf"
               download
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] text-sm sm:text-base"
             >
               Download Resume (PDF)
             </a>
