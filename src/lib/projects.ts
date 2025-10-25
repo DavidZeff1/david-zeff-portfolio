@@ -2,7 +2,7 @@ export const projects = [
   {
     title: "David Teaches Code",
     description:
-      "A personal coding tutorial and portfolio platform built with a modern frontend stack. Features smooth animations, responsive design, and showcases interactive projects with video previews. Designed to highlight teaching resources, projects, and technical writing in an engaging format.",
+      "A portfolio website showcasing coding tutorials, projects, and technical articles. Features video previews, smooth animations, and a clean, modern design.",
     tech: [
       "Next.js 13 App Router",
       "TypeScript",
@@ -22,7 +22,7 @@ export const projects = [
   {
     title: "PlacePal (Airbnb Clone)",
     description:
-      "A full-stack property booking platform inspired by Airbnb. Supports property listings, user authentication, guest & date selection, secure payments, and responsive UI. Built to demonstrate real-world booking workflows with scalable architecture.",
+      "A property rental platform where users can browse listings, book accommodations, and make secure payments. Includes user authentication and a responsive booking interface.",
     tech: [
       "React",
       "Next.js",
@@ -47,7 +47,7 @@ export const projects = [
   {
     title: "David's Tech Reviews",
     description:
-      "A tech review and blogging platform featuring MDX-based posts, affiliate integration, and AI-assisted content. Includes SEO optimization, structured data, and custom styling for product showcases. Built to explore content generation and monetization with Amazon Affiliates and OpenAI.",
+      "A tech blog featuring product reviews and articles. Integrates with Amazon Affiliates for product links and uses AI to assist with content creation.",
     tech: [
       "Next.js 13 App Router",
       "TypeScript",
@@ -70,7 +70,7 @@ export const projects = [
   {
     title: "Prisma Clone",
     description:
-      "A clone of the official Prisma homepage, built to practice modern frontend development and design implementation. Focused on responsive layouts, interactive components, and smooth styling using Next.js, TypeScript, and Tailwind CSS. This project showcases the ability to replicate real-world production designs with clean, maintainable code.",
+      "A recreation of the Prisma homepage to practice frontend development. Demonstrates the ability to replicate professional website designs with clean code.",
     tech: [
       "Next.js 13 App Router",
       "TypeScript",
@@ -88,7 +88,7 @@ export const projects = [
   {
     title: "Survivor Guy (Unity Game)",
     description:
-      "A 2D survival game developed in Unity, where the player navigates waves of enemies and manages limited resources to stay alive. The project emphasizes clean architecture and the application of design pattern principles such as Singleton for game management, Observer for event handling, and Factory for spawning enemies. Built to strengthen game development skills with Unity while showcasing the ability to structure scalable and maintainable gameplay systems.",
+      "A 2D survival game where players fight off waves of enemies and manage resources. Built with Unity and demonstrates core game development patterns and architecture.",
     tech: [
       "Unity Engine",
       "C#",
