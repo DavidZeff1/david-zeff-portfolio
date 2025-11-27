@@ -10,7 +10,7 @@ import Script from "next/script"; // <-- Import Script
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = Metadata = {
+export const metadata: Metadata = {
   title: "David's Portfolio",
   description: "Showcasing my projects and resume",
   icons: {
