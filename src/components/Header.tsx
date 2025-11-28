@@ -11,21 +11,10 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
       <nav className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo / Name */}
-        <h1 className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
-          David Zeff
-        </h1>
+        <h1 className="font-extrabold text-xl">David Zeff</h1>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-6 text-sm font-medium">
-          <li>
-            <Link
-              href="#hero"
-              scroll={true}
-              className="hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              Home
-            </Link>
-          </li>
           <li>
             <Link
               href="#about"
