@@ -7,26 +7,26 @@
 
 /* ---------------- Theme tokens ---------------- */
 :root {
-  /* Core */
-  --bg: #c6c6c6; /* soft off-white */
-  --fg: #1f2937; /* primary text (zinc-800) */
-  --heading: #111827; /* heading color */
-  --muted: #6b7280; /* secondary text (zinc-600) */
+  /* Core - Sand & Shoreline */
+  --bg: #f8f0e3; /* Very light sand/off-white (Warm base) */
+  --fg: #34495e; /* Rich, dark **Blue-Gray** (Deep water/Shadows) */
+  --heading: #2c3e50; /* Darkest Navy-like color for headings */
+  --muted: #8096aa; /* Muted Blue-Gray for secondary text (Faded sky) */
 
-  /* Surfaces */
-  --card: #ffffff; /* cards, panels */
-  --button-bg: #f7f7f6; /* button backgrounds */
-  --tag-bg: #f3f4f6; /* skill tags */
-  --pill-bg: #f1f1ef; /* small pills */
+  /* Surfaces - Beach Textures */
+  --card: #ffffff; /* Clean white of a seashell/fresh foam */
+  --button-bg: #eaf1f7; /* **Very Light, Cool Blue** for interactive elements */
+  --tag-bg: #dfe8f0; /* Light, calming blue-gray for tags/surfaces */
+  --pill-bg: #e6f0f5; /* Softest light blue */
 
-  /* Borders & accents */
-  --border: #e6e6e3; /* subtle border */
-  --accent: #2563eb; /* primary accent (blue-600) */
-  --accent-contrast: #ffffff; /* text on accent */
+  /* Borders & accents - Serene Sea & Sky */
+  --border: #b3c5d6; /* **Soft, light-mid blue** border (Gentle waves) */
+  --accent: #5d98c1; /* **Serene, calming ocean blue** for primary accent */
+  --accent-contrast: #ffffff; /* Text on accent */
 
   /* Icons / misc */
-  --icon: #374151;
-  --linkedin: #0e76a8;
+  --icon: #47799e; /* Deeper calming blue for icons */
+  --linkedin: #0077b5;
 
   color-scheme: light;
 }
@@ -46,13 +46,5 @@ body {
 
 /* Optional niceties */
 ::selection {
-  background: rgba(37, 99, 235, 0.25); /* blue-600/25 */
+  background: rgba(93, 152, 193, 0.4); /* Accent blue (Ocean) at 40% opacity */
 }
-
-/* Helper utilities you can add if you want (optional) */
-/*
-.btn-accent {
-background: var(--accent);
-color: var(--accent-contrast);
-}
-*/

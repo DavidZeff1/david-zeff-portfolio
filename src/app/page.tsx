@@ -13,7 +13,7 @@ export default function HomePage() {
           <img
             src="/images/me.png"
             alt="David Zeff"
-            className="w-40 h-40 object-cover rounded-xl grayscale"
+            className="w-40 h-40 object-cover rounded-xl"
           />
         </div>
         <h1 className="text-5xl md:text-7xl font-extrabold font-serif tracking-wide mb-2 text-[var(--heading)]">
@@ -63,7 +63,7 @@ export default function HomePage() {
             </a>
 
             <a
-              href="/David-Zeff-Resume-English.pdf"
+              href="/David-Zeff-English-Resume.pdf"
               download
               className="flex items-center justify-center gap-2 px-4 py-2 text-sm md:text-base border rounded-lg bg-[var(--button-bg)] border-[var(--border)] hover:-rotate-2 transition-transform"
             >
@@ -77,17 +77,50 @@ export default function HomePage() {
       <section className="mb-12 pb-8 border-t border-b border-[var(--border)]">
         <div className="flex flex-wrap gap-3 justify-center py-8">
           {[
-            "React",
-            "Next.js",
-            "Node.js",
-            "JavaScript",
+            // Languages
             "TypeScript",
-            "SQL",
-            "Python",
-            "C++",
-            "C#",
             "Java",
+            "C#",
+            "CSS",
+            "HTML",
+
+            // Frameworks & APIs
+            "Node.js",
+            "Spring Boot",
+            ".NET",
+            "REST APIs",
+
+            // Storage & Queues
+            "MySQL",
+            "MongoDB",
+            "Redis",
+            "Cassandra",
+            "ElasticSearch",
+            "Kafka",
+
+            // Tools & DevOps/Cloud
             "Docker",
+            "Git",
+            "Kubernetes",
+            "AWS",
+            "Micro Services",
+            "CI/CD",
+            "Web Scraping",
+            "GitHub Actions",
+            "EC2",
+            "ECS",
+            "EKS",
+
+            // Testing
+            "Jest",
+            "Vtest", // Assuming this is Vitest, I'll keep the user's spelling "Vtest"
+            "Cypress",
+
+            // Architecture & Principles
+            "OOP",
+            "Design Patterns",
+            "Clean Architecture",
+            "Clean Code",
           ].map((skill) => (
             <span
               key={skill}
@@ -166,10 +199,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
       <div className="mt-16 pt-6 border-t border-[var(--border)]">
-        <p className="text-sm font-light text-center text-[var(--muted)]">
-          © {new Date().getFullYear()} David Zeff
+        <p className="text-sm font-light text-center text-[var(--muted)] flex items-center justify-center gap-1">
+          © {new Date().getFullYear()}
+          {/* Dolphin GIF Container */}
+          <span className="flex items-center gap-1">
+            <span className="text-[var(--muted)]">David Zeff</span>
+            <img
+              src="/images/projects/ezgif.com-loop-count.gif" // Assuming the GIF is named 'dolphin.gif' and is in your public/images folder
+              alt="Dolphin GIF"
+              className="w-10 h-15 rounded-xl" // Adjust the size (w-4 h-4 is small and concise)
+            />
+          </span>
         </p>
       </div>
     </div>
