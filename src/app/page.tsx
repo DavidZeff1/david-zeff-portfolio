@@ -200,7 +200,7 @@ export default function HomePage() {
       </section>
 
       <div className="mt-16 pt-6 border-t border-[var(--border)]">
-        <p className="text-sm font-light text-center text-[var(--muted)] flex items-center justify-center gap-1">
+        <p className="text-md font-light text-center text-[var(--muted)] flex items-center justify-center gap-1">
           © {new Date().getFullYear()}
           {/* Dolphin GIF Container */}
           <span className="flex items-center gap-1">
@@ -208,7 +208,7 @@ export default function HomePage() {
             <img
               src="/images/projects/ezgif.com-loop-count.gif" // Assuming the GIF is named 'dolphin.gif' and is in your public/images folder
               alt="Dolphin GIF"
-              className="w-10 h-15 rounded-xl" // Adjust the size (w-4 h-4 is small and concise)
+              className="w-20 h-25 rounded-xl" // Adjust the size (w-4 h-4 is small and concise)
             />
           </span>
         </p>

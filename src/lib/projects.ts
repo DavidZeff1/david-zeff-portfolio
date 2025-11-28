@@ -44,46 +44,6 @@ export const projects = [
     demo: "https://airbnb-83oc.vercel.app/",
     github: "https://github.com/DavidZeff1/airbnb",
   },
-  {
-    title: "David's Tech Reviews",
-    description:
-      "A tech blog featuring product reviews and articles. Integrates with Amazon Affiliates for product links and uses AI to assist with content creation.",
-    tech: [
-      "Next.js 13 App Router",
-      "TypeScript",
-      "Tailwind CSS",
-      "Prisma ORM",
-      "MDX for Posts",
-      "gray-matter",
-      "OpenAI API Integration",
-      "SEO Optimization",
-      "Static Site Generation (SSG)",
-      "Dynamic Metadata",
-      "Affiliate Links (Amazon)",
-      "Vercel Deployment",
-    ],
-    image: "/images/projects/project1.png",
-    video: "/videos/DavidstechReviews.mp4",
-    demo: "https://davidstechreviews.vercel.app/",
-    github: "https://github.com/DavidZeff1/davidstechreviews",
-  },
-  {
-    title: "Prisma Clone",
-    description:
-      "A recreation of the Prisma homepage to practice frontend development. Demonstrates the ability to replicate professional website designs with clean code.",
-    tech: [
-      "Next.js 13 App Router",
-      "TypeScript",
-      "Tailwind CSS",
-      "Responsive Design",
-      "Static Assets & Icons",
-      "Vercel Deployment",
-    ],
-    image: "/images/projects/project1.png",
-    video: "/videos/prisma-clone.mp4",
-    demo: "https://prisma-clone-steel.vercel.app/",
-    github: "https://github.com/DavidZeff1/prisma-clone",
-  },
 
   {
     title: "Survivor Guy (Unity Game)",
@@ -103,5 +63,25 @@ export const projects = [
     video: "/videos/survivor-guy.mp4",
     demo: "https://gamerdave141592.itch.io/survivor-guy",
     github: "https://github.com/DavidZeff1/Final-Project",
+  },
+  {
+    title: "Algorithm Visualizer",
+    description:
+      "A web-based tool for interactively visualizing and understanding common sorting and searching algorithms. Built with pure TypeScript, HTML, and CSS, prioritizing clean code and a modular architecture.",
+    tech: [
+      "TypeScript",
+      "HTML5",
+      "CSS3",
+      "Clean Code Principles",
+      "Clean Architecture (e.g., Separation of Concerns)",
+      "DOM Manipulation",
+      "Asynchronous Programming (e.g., Async/Await for step-by-step visualization)",
+      "Event Management",
+      "CSS Animations & Transitions",
+    ],
+    image: "/images/projects/project1.png",
+    video: "/videos/AlgoVisualizer.mp4",
+    demo: "https://vercel.com/davids-projects-f91907cd/algorithm-visualizer",
+    github: "https://github.com/DavidZeff1/algorithm-visualizer",
   },
 ];
