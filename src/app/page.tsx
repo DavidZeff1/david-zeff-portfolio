@@ -1,179 +1,177 @@
 "use client";
 
+import "./globals.css";
 import { projects } from "@/lib/projects";
-import Image from "next/image";
 import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="space-y-24">
+    <div className="w-full max-w-4xl mx-auto px-6 py-12 min-h-screen">
       {/* Hero */}
-      <section id="hero" className="py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
-            <div className="w-48 h-48 relative shrink-0">
-              <Image
-                src="/images/me3.png"
-                alt="David portrait"
-                fill
-                className="object-cover rounded-lg"
-                priority
-              />
-            </div>
-
-            <div className="flex-1 text-center md:text-left">
-              <h1 className="text-4xl font-bold mb-4">David Zeff</h1>
-              <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
-                Full-Stack Developer
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                Computer Science graduate who loves building things with code.
-                Whether it&apos;s front-end, back-end, or anywhere in between -
-                if it involves problem-solving and programming, I&apos;m all in.
-              </p>
-              <a
-                href="/David-Zeff-Resume-English.pdf"
-                download
-                className="inline-block px-6 py-2 bg-black dark:bg-white text-white dark:text-black rounded hover:bg-gray-800 dark:hover:bg-gray-200"
-              >
-                Download Resume
-              </a>
-            </div>
-          </div>
+      <section className="text-center mb-12">
+        <div className="w-full flex justify-center mb-10">
+          <img
+            src="/images/me.png"
+            alt="David Zeff"
+            className="w-40 h-40 object-cover rounded-xl grayscale"
+          />
         </div>
-      </section>
+        <h1 className="text-5xl md:text-7xl font-extrabold font-serif tracking-wide mb-2 text-[var(--heading)]">
+          David Zeff
+        </h1>
+        <p className="text-sm font-light text-[var(--muted)] mb-8">
+          Software Developer
+        </p>
 
-      {/* Skills */}
-      <section
-        id="skills"
-        className="border-t border-b border-gray-200 dark:border-gray-800 py-8"
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap gap-4 justify-center">
-            {[
-              "React",
-              "Next.js",
-              "Node.js",
-              "JavaScript",
-              "TypeScript",
-              "SQL",
-              "Python",
-              "C++",
-              "C#",
-              "Java",
-              "Docker",
-            ].map((skill) => (
-              <span
-                key={skill}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded text-sm"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+        <div className="max-w-2xl mx-auto p-6 rounded-md mb-8 ">
+          <p className="text-sm md:text-base leading-loose text-[var(--fg)]">
+            Hi, I&apos;m David. I&apos;m a Computer Science graduate who loves
+            building things with code. Whether it&apos;s front-end, back-end, or
+            anywhere in between — if it involves problem-solving and
+            programming, I&apos;m all in.
+          </p>
 
-      {/* Projects */}
-      <section id="projects">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">Projects</h2>
-
-          <div className="space-y-16">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="border-b border-gray-200 dark:border-gray-800 pb-16 last:border-0"
-              >
-                <div className="mb-6">
-                  <video
-                    src={project.video}
-                    className="w-full rounded border border-gray-200 dark:border-gray-800"
-                    controls
-                  />
-                </div>
-
-                <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded hover:bg-gray-800 dark:hover:bg-gray-200"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-50 dark:hover:bg-gray-800"
-                  >
-                    <Github className="w-4 h-4" />
-                    Code
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section
-        id="contact"
-        className="border-t border-gray-200 dark:border-gray-800 pt-16"
-      >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Contact</h2>
-
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
             <a
               href="mailto:dpzeff@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-50 dark:hover:bg-gray-800"
-            >
-              <Mail className="w-5 h-5" />
-              dpzeff@gmail.com
-            </a>
-
-            <a
-              href="https://github.com/DavidZeff1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-50 dark:hover:bg-gray-800"
+              className="flex items-center justify-center gap-2 px-4 py-2 text-sm md:text-base border rounded-lg bg-[var(--button-bg)] border-[var(--border)] hover:rotate-2 transition-transform"
             >
-              <Github className="w-5 h-5" />
-              GitHub
+              <Mail className="w-5 h-5 text-[var(--icon)]" />
+              dpzeff@gmail.com
             </a>
 
             <a
               href="https://www.linkedin.com/in/david-zeff-computerscience141592/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded hover:bg-gray-50 dark:hover:bg-gray-800"
+              className="flex items-center justify-center gap-2 px-4 py-2 text-sm md:text-base border rounded-lg bg-[var(--button-bg)] border-[var(--border)] hover:-rotate-2 transition-transform"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-5 h-5 text-[var(--linkedin)]" />
               LinkedIn
+            </a>
+
+            <a
+              href="https://github.com/DavidZeff1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-4 py-2 text-sm md:text-base border rounded-lg bg-[var(--button-bg)] border-[var(--border)] hover:rotate-2 transition-transform"
+            >
+              <Github className="w-5 h-5 text-[var(--icon)]" />
+              GitHub
+            </a>
+
+            <a
+              href="/David-Zeff-Resume-English.pdf"
+              download
+              className="flex items-center justify-center gap-2 px-4 py-2 text-sm md:text-base border rounded-lg bg-[var(--button-bg)] border-[var(--border)] hover:-rotate-2 transition-transform"
+            >
+              Resume
             </a>
           </div>
         </div>
       </section>
+
+      {/* Skills */}
+      <section className="mb-12 pb-8 border-t border-b border-[var(--border)]">
+        <div className="flex flex-wrap gap-3 justify-center py-8">
+          {[
+            "React",
+            "Next.js",
+            "Node.js",
+            "JavaScript",
+            "TypeScript",
+            "SQL",
+            "Python",
+            "C++",
+            "C#",
+            "Java",
+            "Docker",
+          ].map((skill) => (
+            <span
+              key={skill}
+              className="px-4 py-2 text-sm border rounded-lg bg-[var(--tag-bg)] border-[var(--border)]"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section className="mb-12">
+        <h2 className="text-3xl font-serif mb-8 text-center text-[var(--heading)]">
+          Projects
+        </h2>
+
+        <div className="space-y-12">
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className="pb-12 border-b border-[var(--border)] last:border-0"
+            >
+              <div className="mb-4 rounded-md overflow-hidden border bg-[var(--card)] border-[var(--border)]">
+                <div className="relative w-full aspect-video bg-black">
+                  <video
+                    src={project.video}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    autoPlay
+                    controls
+                    playsInline
+                  />
+                </div>
+              </div>
+
+              <h3 className="text-2xl font-serif mb-2 text-[var(--heading)]">
+                {project.title}
+              </h3>
+              <p className="text-sm md:text-base text-[var(--muted)] mb-3 leading-relaxed">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 text-xs rounded-full bg-[var(--pill-bg)] border border-[var(--border)]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-3">
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-[var(--fg)] hover:underline"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Live Demo
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-[var(--fg)] hover:underline"
+                >
+                  <Github className="w-4 h-4" />
+                  Code
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <div className="mt-16 pt-6 border-t border-[var(--border)]">
+        <p className="text-sm font-light text-center text-[var(--muted)]">
+          © {new Date().getFullYear()} David Zeff
+        </p>
+      </div>
     </div>
   );
 }
