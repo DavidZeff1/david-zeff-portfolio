@@ -149,7 +149,6 @@ export default function HomePage() {
                   <video
                     src={project.video}
                     className="absolute inset-0 w-full h-full object-contain"
-                    autoPlay
                     controls
                     playsInline
                   />
