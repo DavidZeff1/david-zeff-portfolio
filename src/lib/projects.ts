@@ -1,5 +1,30 @@
 export const projects = [
   {
+    title: "Real-Time Battle Tracker",
+    description:
+      "A distributed system for live military unit monitoring and tactical analysis. Features real-time position tracking, threat visualization with danger zones, movement trails, and an auto-generated activity feed. Built with event-driven microservices architecture.",
+    tech: [
+      "React",
+      "TypeScript",
+      "Redux Toolkit",
+      "Leaflet Maps",
+      "Node.js",
+      "Express",
+      "Apache Kafka",
+      "Server-Sent Events (SSE)",
+      "Docker",
+      "Docker Compose",
+      "Microservices Architecture",
+      "Event-Driven Design",
+      "Pub/Sub Messaging",
+      "Real-Time Data Streaming",
+    ],
+    image: "/images/projects/project1.png",
+    video: "/videos/BattleTracker.mov",
+    demo: "https://github.com/DavidZeff1/battletracker", // add if deployed
+    github: "https://github.com/DavidZeff1/battletracker", // update with your actual repo
+  },
+  {
     title: "David Teaches Code",
     description:
       "A portfolio website showcasing coding tutorials, projects, and technical articles. Features video previews, smooth animations, and a clean, modern design.",
