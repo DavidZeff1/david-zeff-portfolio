@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,23 +23,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* 1. Add the first part of the Google Tag to the <head> using the Script component.
-           'beforeInteractive' strategy ensures it loads before user interaction.
-      */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-3HZHYFBPJH"
         strategy="afterInteractive"
       />
-
-      {/* 2. Add the second, inline configuration script.
-           'afterInteractive' is a good balance for analytics.
-      */}
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'G-3HZHYFBPJH');
         `}
       </Script>
@@ -45,8 +39,11 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-[var(--bg)] text-[var(--fg)] min-h-screen transition-colors`}
       >
-        {/* Page content */}
-        <main className="max-w-6xl mx-auto px-4 py-12">{children}</main>
+        <main className="max-w-6xl mx-auto px-4 py-12">
+          <Header />
+          {children}
+          <Footer />
+        </main>
 
         <Analytics />
       </body>

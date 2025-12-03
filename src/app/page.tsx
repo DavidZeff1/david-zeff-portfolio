@@ -3,6 +3,7 @@
 import "./globals.css";
 import { projects } from "@/lib/projects";
 import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -73,65 +74,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Skills */}
-      <section className="mb-12 pb-8 border-t border-b border-[var(--border)]">
-        <div className="flex flex-wrap gap-3 justify-center py-8">
-          {[
-            // Languages
-            "TypeScript",
-            "Java",
-            "C#",
-            "CSS",
-            "HTML",
-
-            // Frameworks & APIs
-            "Node.js",
-            "Spring Boot",
-            ".NET",
-            "REST APIs",
-
-            // Storage & Queues
-            "MySQL",
-            "MongoDB",
-            "Redis",
-            "Cassandra",
-            "ElasticSearch",
-            "Kafka",
-
-            // Tools & DevOps/Cloud
-            "Docker",
-            "Git",
-            "Kubernetes",
-            "AWS",
-            "Micro Services",
-            "CI/CD",
-            "Web Scraping",
-            "GitHub Actions",
-            "EC2",
-            "ECS",
-            "EKS",
-
-            // Testing
-            "Jest",
-            "Vtest", // Assuming this is Vitest, I'll keep the user's spelling "Vtest"
-            "Cypress",
-
-            // Architecture & Principles
-            "OOP",
-            "Design Patterns",
-            "Clean Architecture",
-            "Clean Code",
-          ].map((skill) => (
-            <span
-              key={skill}
-              className="px-4 py-2 text-sm border rounded-lg bg-[var(--tag-bg)] border-[var(--border)]"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </section>
-
       {/* Projects */}
       <section className="mb-12">
         <h2 className="text-3xl font-serif mb-8 text-center text-[var(--heading)]">
@@ -197,21 +139,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
-      <div className="mt-16 pt-6 border-t border-[var(--border)]">
-        <p className="text-md font-light text-center text-[var(--muted)] flex items-center justify-center gap-1">
-          © {new Date().getFullYear()}
-          {/* Dolphin GIF Container */}
-          <span className="flex items-center gap-1">
-            <span className="text-[var(--muted)]">David Zeff</span>
-            <img
-              src="/images/projects/ezgif.com-loop-count.gif" // Assuming the GIF is named 'dolphin.gif' and is in your public/images folder
-              alt="Dolphin GIF"
-              className="w-20 h-25 rounded-xl" // Adjust the size (w-4 h-4 is small and concise)
-            />
-          </span>
-        </p>
-      </div>
     </div>
   );
 }

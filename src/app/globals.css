@@ -1,50 +1,45 @@
 /* ---------------- globals.css ---------------- */
-/* Tailwind v4 core (no @tailwind base/components/utilities needed) */
 @import "tailwindcss";
 
-/* Make `dark:` utilities respond to the `.dark` class on <html> */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ---------------- Theme tokens ---------------- */
 :root {
-  /* Core - Sand & Shoreline */
-  --bg: #f8f0e3; /* Very light sand/off-white (Warm base) */
-  --fg: #34495e; /* Rich, dark **Blue-Gray** (Deep water/Shadows) */
-  --heading: #2c3e50; /* Darkest Navy-like color for headings */
-  --muted: #8096aa; /* Muted Blue-Gray for secondary text (Faded sky) */
+  /* Core - Night Beach */
+  --bg: #1a2633; /* Deep ocean at dusk */
+  --fg: #e0d6c8; /* Soft sand/cream for body text */
+  --heading: #f0c866; /* Warm sunset gold for headings */
+  --muted: #8a9bab; /* Faded horizon blue-gray */
 
-  /* Surfaces - Beach Textures */
-  --card: #ffffff; /* Clean white of a seashell/fresh foam */
-  --button-bg: #eaf1f7; /* **Very Light, Cool Blue** for interactive elements */
-  --tag-bg: #dfe8f0; /* Light, calming blue-gray for tags/surfaces */
-  --pill-bg: #e6f0f5; /* Softest light blue */
+  /* Surfaces - Twilight Textures */
+  --card: #243241; /* Darker sand/shallow water */
+  --button-bg: #2c3d4f; /* Interactive - like wet sand */
+  --tag-bg: #2f4050; /* Calm tide pool */
+  --pill-bg: #344455; /* Soft wave */
 
-  /* Borders & accents - Serene Sea & Sky */
-  --border: #b3c5d6; /* **Soft, light-mid blue** border (Gentle waves) */
-  --accent: #5d98c1; /* **Serene, calming ocean blue** for primary accent */
-  --accent-contrast: #ffffff; /* Text on accent */
+  /* Borders & accents - Ocean & Sunset */
+  --border: #3d5468; /* Gentle wave line */
+  --accent: #4db3e6; /* Bright tropical water */
+  --accent-contrast: #1a2633; /* Text on accent */
 
   /* Icons / misc */
-  --icon: #47799e; /* Deeper calming blue for icons */
+  --icon: #6bc5eb; /* Light ocean blue */
   --linkedin: #0077b5;
+  --yellow-glow: #f5d36e; /* Sunset accent */
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
-/* Optional: expose tokens to Tailwind via v4 @theme */
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--fg);
 }
 
-/* ------------- Base (keep it minimal) ------------- */
-/* Do NOT hardcode body background/text here—Tailwind classes in your layout control that */
 html,
 body {
   scroll-behavior: smooth;
 }
 
-/* Optional niceties */
 ::selection {
-  background: rgba(93, 152, 193, 0.4); /* Accent blue (Ocean) at 40% opacity */
+  background: rgba(77, 179, 230, 0.4); /* Ocean blue at 40% */
 }
