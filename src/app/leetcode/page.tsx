@@ -110,14 +110,7 @@ export default function LeetCodeRoadmap() {
     const answeredState = isAnswered(l.url);
     return (
       <div className={`link-row ${answeredState ? "answered" : ""}`}>
-        <a
-          href={l.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => {
-            // normal link click should still open the problem
-          }}
-        >
+        <a href={l.url} target="_blank" rel="noopener noreferrer">
           {l.name}
         </a>
         <button
@@ -526,9 +519,11 @@ export default function LeetCodeRoadmap() {
               <h3 className="easy">Easy</h3>
               <div className="links">
                 {modalTopic && topics[modalTopic].easy.length > 0
-                  ? topics[modalTopic].easy.map((l: any) => (
-                      <LinkRow key={l.url} l={l} />
-                    ))
+                  ? topics[modalTopic].easy.map(
+                      (l: { name: string; url: string }) => (
+                        <LinkRow key={l.url} l={l} />
+                      )
+                    )
                   : "No problems added yet"}
               </div>
             </div>
@@ -536,9 +531,11 @@ export default function LeetCodeRoadmap() {
               <h3 className="medium">Medium</h3>
               <div className="links">
                 {modalTopic && topics[modalTopic].medium.length > 0
-                  ? topics[modalTopic].medium.map((l: any) => (
-                      <LinkRow key={l.url} l={l} />
-                    ))
+                  ? topics[modalTopic].medium.map(
+                      (l: { name: string; url: string }) => (
+                        <LinkRow key={l.url} l={l} />
+                      )
+                    )
                   : "No problems added yet"}
               </div>
             </div>
@@ -546,9 +543,11 @@ export default function LeetCodeRoadmap() {
               <h3 className="hard">Hard</h3>
               <div className="links">
                 {modalTopic && topics[modalTopic].hard.length > 0
-                  ? topics[modalTopic].hard.map((l: any) => (
-                      <LinkRow key={l.url} l={l} />
-                    ))
+                  ? topics[modalTopic].hard.map(
+                      (l: { name: string; url: string }) => (
+                        <LinkRow key={l.url} l={l} />
+                      )
+                    )
                   : "No problems added yet"}
               </div>
             </div>
