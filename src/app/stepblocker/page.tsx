@@ -323,6 +323,7 @@ export default function StepBlockerPage() {
       </div>
 
       {/* Download Card */}
+      {/* Download Card */}
       <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-2xl p-6 mb-6">
         <h3 className="font-semibold text-[var(--heading)] mb-2">
           📥 Get the Desktop App
@@ -331,7 +332,7 @@ export default function StepBlockerPage() {
           You need the desktop app to block websites. The step tracker (this
           page) generates unlock codes.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <a
             href="https://github.com/DavidZeff1/stepblocker/releases/download/v1.0.0/stepblocker-mac.zip"
             className="flex-1 flex items-center justify-center gap-2 bg-[var(--card)] border border-[var(--border)] text-[var(--text)] font-medium py-3 px-4 rounded-xl hover:border-[var(--accent)] transition-colors"
@@ -345,6 +346,43 @@ export default function StepBlockerPage() {
             <span>🪟</span> Download for Windows
           </a>
         </div>
+
+        <div className="border-t border-[var(--border)] pt-4">
+          <h4 className="font-medium text-[var(--heading)] text-sm mb-3">
+            After downloading:
+          </h4>
+          <div className="grid sm:grid-cols-2 gap-4 text-sm text-[var(--muted)]">
+            <div>
+              <div className="font-medium text-[var(--text)] mb-1">🍎 Mac</div>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Unzip the file</li>
+                <li>Open Terminal</li>
+                <li>Drag the folder into Terminal</li>
+                <li>
+                  Type:{" "}
+                  <code className="bg-[var(--background)] px-1 rounded">
+                    python3 stepblocker.py
+                  </code>
+                </li>
+              </ol>
+            </div>
+            <div>
+              <div className="font-medium text-[var(--text)] mb-1">
+                🪟 Windows
+              </div>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Unzip the file</li>
+                <li>
+                  Double-click{" "}
+                  <code className="bg-[var(--background)] px-1 rounded">
+                    run.bat
+                  </code>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
         <p className="text-xs text-[var(--muted)] mt-4 text-center">
           Requires Python 3.{" "}
           <a
