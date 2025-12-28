@@ -324,6 +324,7 @@ export default function StepBlockerPage() {
 
       {/* Download Card */}
       {/* Download Card */}
+      {/* Download Card */}
       <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-2xl p-6 mb-6">
         <h3 className="font-semibold text-[var(--heading)] mb-2">
           📥 Get the Desktop App
@@ -332,68 +333,47 @@ export default function StepBlockerPage() {
           You need the desktop app to block websites. The step tracker (this
           page) generates unlock codes.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 mb-6">
-          <a
-            href="https://github.com/DavidZeff1/stepblocker/releases/download/v1.0.0/stepblocker-mac.zip"
-            className="flex-1 flex items-center justify-center gap-2 bg-[var(--card)] border border-[var(--border)] text-[var(--text)] font-medium py-3 px-4 rounded-xl hover:border-[var(--accent)] transition-colors"
-          >
-            <span>🍎</span> Download for Mac
-          </a>
-          <a
-            href="https://github.com/DavidZeff1/stepblocker-windows/releases/download/v1.0.0/stepblocker-windows.zip"
-            className="flex-1 flex items-center justify-center gap-2 bg-[var(--card)] border border-[var(--border)] text-[var(--text)] font-medium py-3 px-4 rounded-xl hover:border-[var(--accent)] transition-colors"
-          >
-            <span>🪟</span> Download for Windows
-          </a>
-        </div>
 
-        <div className="border-t border-[var(--border)] pt-4">
-          <h4 className="font-medium text-[var(--heading)] text-sm mb-3">
-            After downloading:
-          </h4>
-          <div className="grid sm:grid-cols-2 gap-4 text-sm text-[var(--muted)]">
-            <div>
-              <div className="font-medium text-[var(--text)] mb-1">🍎 Mac</div>
-              <ol className="list-decimal list-inside space-y-1">
-                <li>Unzip the file</li>
-                <li>Open Terminal</li>
-                <li>Drag the folder into Terminal</li>
-                <li>
-                  Type:{" "}
-                  <code className="bg-[var(--background)] px-1 rounded">
-                    python3 stepblocker.py
-                  </code>
-                </li>
-              </ol>
-            </div>
-            <div>
-              <div className="font-medium text-[var(--text)] mb-1">
-                🪟 Windows
-              </div>
-              <ol className="list-decimal list-inside space-y-1">
-                <li>Unzip the file</li>
-                <li>
-                  Double-click{" "}
-                  <code className="bg-[var(--background)] px-1 rounded">
-                    run.bat
-                  </code>
-                </li>
-              </ol>
-            </div>
+        {/* Mac */}
+        <div className="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 mb-3">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-medium text-[var(--text)]">🍎 Mac</span>
+            <a
+              href="https://github.com/DavidZeff1/stepblocker/releases/download/v1.0.0/stepblocker-mac.zip"
+              className="bg-[var(--accent)] text-white text-sm font-medium py-2 px-4 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              Download
+            </a>
           </div>
+          <p className="text-xs text-[var(--muted)]">
+            Unzip → Double-click StepBlocker.app → Done!
+          </p>
         </div>
 
-        <p className="text-xs text-[var(--muted)] mt-4 text-center">
-          Requires Python 3.{" "}
-          <a
-            href="https://python.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--accent)] hover:underline"
-          >
-            Get Python
-          </a>
-        </p>
+        {/* Windows */}
+        <div className="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-medium text-[var(--text)]">🪟 Windows</span>
+            <a
+              href="https://github.com/DavidZeff1/stepblocker-windows/releases/download/v1.0.0/stepblocker-windows.zip"
+              className="bg-[var(--border)] text-[var(--text)] text-sm font-medium py-2 px-4 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              Download
+            </a>
+          </div>
+          <p className="text-xs text-[var(--muted)]">
+            Requires{" "}
+            <a
+              href="https://python.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--accent)] hover:underline"
+            >
+              Python 3
+            </a>
+            . Unzip → Double-click run.bat
+          </p>
+        </div>
       </div>
 
       {/* Support */}
