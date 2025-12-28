@@ -502,15 +502,19 @@ export default function LeetCodeRoadmap() {
           </div>
         </div>
 
-        <div className="support-link">
+        {/* Support */}
+        <div className="text-center pt-4 border-t border-[var(--border)]">
           <a
             href="https://buymeacoffee.com/davidzeff"
             target="_blank"
             rel="noopener noreferrer"
-            className="coffee-btn"
+            className="inline-flex items-center gap-2 bg-[#ffdd00] text-black font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity"
           >
             ☕ Buy me a coffee
           </a>
+          <p className="text-xs text-[var(--muted)] mt-3">
+            Free & open source. Support the project if you find it useful!
+          </p>
         </div>
 
         {/* Modal */}
