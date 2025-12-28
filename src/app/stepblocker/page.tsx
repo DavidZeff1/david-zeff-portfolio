@@ -323,8 +323,6 @@ export default function StepBlockerPage() {
       </div>
 
       {/* Download Card */}
-      {/* Download Card */}
-      {/* Download Card */}
       <div className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-2xl p-6 mb-6">
         <h3 className="font-semibold text-[var(--heading)] mb-2">
           📥 Get the Desktop App
@@ -336,7 +334,7 @@ export default function StepBlockerPage() {
 
         {/* Mac */}
         <div className="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 mb-3">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-3">
             <span className="font-medium text-[var(--text)]">🍎 Mac</span>
             <a
               href="https://github.com/DavidZeff1/stepblocker/releases/download/v1.0.0/stepblocker-mac.zip"
@@ -345,18 +343,56 @@ export default function StepBlockerPage() {
               Download
             </a>
           </div>
-          <p className="text-xs text-[var(--muted)]">
-            Unzip → Right-click StepBlocker.app → Open → Open
-          </p>
-          <p className="text-xs text-[var(--muted)] mt-1 opacity-70">
-            First time only: Mac will ask to confirm since it's not from the App
-            Store
-          </p>
+
+          <div className="text-xs text-[var(--muted)] space-y-2">
+            <p className="font-medium text-[var(--text)]">How to install:</p>
+            <ol className="list-decimal list-inside space-y-1">
+              <li>Download and unzip the file</li>
+              <li>
+                Drag <strong>StepBlocker.app</strong> to your Applications
+                folder
+              </li>
+              <li>
+                <strong>Right-click</strong> (or Control-click) on the app
+              </li>
+              <li>
+                Click <strong>"Open"</strong> from the menu
+              </li>
+              <li>
+                Click <strong>"Open"</strong> again when the popup appears
+              </li>
+            </ol>
+
+            <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mt-3">
+              <p className="text-yellow-200/90 font-medium mb-1">
+                ⚠️ "Cannot be opened" warning?
+              </p>
+              <p className="text-yellow-200/70">
+                This happens because the app isn't from the App Store. It's safe
+                — the code is
+                <a
+                  href="https://github.com/DavidZeff1/stepblocker"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--accent)] hover:underline ml-1"
+                >
+                  open source on GitHub
+                </a>
+                .
+              </p>
+              <p className="text-yellow-200/70 mt-2">
+                <strong>Still blocked?</strong> Go to{" "}
+                <strong>System Settings → Privacy & Security</strong>, scroll
+                down, and click <strong>"Open Anyway"</strong> next to
+                StepBlocker.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Windows */}
         <div className="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-3">
             <span className="font-medium text-[var(--text)]">🪟 Windows</span>
             <a
               href="https://github.com/DavidZeff1/stepblocker-windows/releases/download/v1.0.0/stepblocker-windows.zip"
@@ -365,18 +401,47 @@ export default function StepBlockerPage() {
               Download
             </a>
           </div>
-          <p className="text-xs text-[var(--muted)]">
-            Requires{" "}
-            <a
-              href="https://python.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] hover:underline"
-            >
-              Python 3
-            </a>
-            . Unzip → Double-click run.bat
-          </p>
+
+          <div className="text-xs text-[var(--muted)] space-y-2">
+            <p className="font-medium text-[var(--text)]">How to install:</p>
+            <ol className="list-decimal list-inside space-y-1">
+              <li>
+                Install{" "}
+                <a
+                  href="https://python.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--accent)] hover:underline"
+                >
+                  Python 3
+                </a>{" "}
+                if you don't have it
+              </li>
+              <li>Download and unzip the file</li>
+              <li>
+                Double-click <strong>run.bat</strong>
+              </li>
+            </ol>
+
+            <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mt-3">
+              <p className="text-yellow-200/90 font-medium mb-1">
+                ⚠️ "Windows protected your PC" warning?
+              </p>
+              <p className="text-yellow-200/70">
+                Click <strong>"More info"</strong> →{" "}
+                <strong>"Run anyway"</strong>. The code is
+                <a
+                  href="https://github.com/DavidZeff1/stepblocker-windows"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--accent)] hover:underline ml-1"
+                >
+                  open source on GitHub
+                </a>
+                .
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
