@@ -9,6 +9,7 @@ export default function Header() {
   const links = [
     { href: "/", label: "Home" },
     { href: "/leetcode", label: "LeetCode Roadmap" },
+    { href: "/stepblocker", label: "StepBlocker" },
   ];
 
   return (
