@@ -3,7 +3,7 @@
 import "./globals.css";
 import { projects } from "@/lib/projects";
 import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
-import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -139,6 +139,7 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

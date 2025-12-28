@@ -42,7 +42,6 @@ export default function RootLayout({
         <main className="max-w-6xl mx-auto px-4 py-12">
           <Header />
           {children}
-          <Footer />
         </main>
 
         <Analytics />
