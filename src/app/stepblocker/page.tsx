@@ -333,22 +333,29 @@ export default function StepBlockerPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <a
-            href="https://github.com/DavidZeff1/stepblocker"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://github.com/DavidZeff1/stepblocker/releases/download/v1.0.0/stepblocker-mac.zip"
             className="flex-1 flex items-center justify-center gap-2 bg-[var(--card)] border border-[var(--border)] text-[var(--text)] font-medium py-3 px-4 rounded-xl hover:border-[var(--accent)] transition-colors"
           >
-            <span>🍎</span> Mac Version
+            <span>🍎</span> Download for Mac
           </a>
           <a
-            href="https://github.com/DavidZeff1/stepblocker-windows"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://github.com/DavidZeff1/stepblocker-windows/releases/download/v1.0.0/stepblocker-windows.zip"
             className="flex-1 flex items-center justify-center gap-2 bg-[var(--card)] border border-[var(--border)] text-[var(--text)] font-medium py-3 px-4 rounded-xl hover:border-[var(--accent)] transition-colors"
           >
-            <span>🪟</span> Windows Version
+            <span>🪟</span> Download for Windows
           </a>
         </div>
+        <p className="text-xs text-[var(--muted)] mt-4 text-center">
+          Requires Python 3.{" "}
+          <a
+            href="https://python.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--accent)] hover:underline"
+          >
+            Get Python
+          </a>
+        </p>
       </div>
 
       {/* Support */}
