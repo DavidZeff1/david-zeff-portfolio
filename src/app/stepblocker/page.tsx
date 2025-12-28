@@ -346,7 +346,11 @@ export default function StepBlockerPage() {
             </a>
           </div>
           <p className="text-xs text-[var(--muted)]">
-            Unzip → Double-click StepBlocker.app → Done!
+            Unzip → Right-click StepBlocker.app → Open → Open
+          </p>
+          <p className="text-xs text-[var(--muted)] mt-1 opacity-70">
+            First time only: Mac will ask to confirm since it's not from the App
+            Store
           </p>
         </div>
 
