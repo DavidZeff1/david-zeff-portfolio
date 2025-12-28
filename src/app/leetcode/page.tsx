@@ -502,6 +502,17 @@ export default function LeetCodeRoadmap() {
           </div>
         </div>
 
+        <div className="support-link">
+          <a
+            href="https://buymeacoffee.com/davidzeff"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="coffee-btn"
+          >
+            ☕ Buy me a coffee
+          </a>
+        </div>
+
         {/* Modal */}
         <div
           className={`roadmap-modal ${modalTopic ? "open" : ""}`}
