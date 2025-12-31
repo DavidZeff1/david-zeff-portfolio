@@ -10,6 +10,10 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/leetcode", label: "LeetCode Roadmap" },
     { href: "/stepblocker", label: "StepBlocker" },
+    {
+      href: "https://job-app-generator-two.vercel.app/",
+      label: "Dynamic Resume Generator",
+    },
   ];
 
   return (
