@@ -7,8 +7,8 @@ export default function Header() {
   const pathname = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDataDropdownOpen, setIsDataDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dataDropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef(null);
+  const dataDropdownRef = useRef(null);
 
   const mainLinks = [
     { href: "/", label: "Home" },
@@ -42,17 +42,18 @@ export default function Header() {
     },
   ];
 
+  // Close dropdowns when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        !(dropdownRef.current as any).contains(event.target as Node)
       ) {
         setIsDropdownOpen(false);
       }
       if (
         dataDropdownRef.current &&
-        !dataDropdownRef.current.contains(event.target as Node)
+        !(dataDropdownRef.current as any).contains(event.target as Node)
       ) {
         setIsDataDropdownOpen(false);
       }
@@ -63,7 +64,7 @@ export default function Header() {
 
   return (
     <header>
-      <nav className="flex items-center">
+      <nav>
         {mainLinks.map((link) => (
           <Link
             key={link.href}
@@ -82,7 +83,7 @@ export default function Header() {
         <div ref={dropdownRef} className="relative">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${
+            className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
               isDropdownOpen
                 ? "text-[var(--heading)]"
                 : "text-[var(--muted)] hover:text-[var(--heading)]"
@@ -113,7 +114,7 @@ export default function Header() {
         <div ref={dataDropdownRef} className="relative">
           <button
             onClick={() => setIsDataDropdownOpen(!isDataDropdownOpen)}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${
+            className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
               isDataDropdownOpen
                 ? "text-[var(--heading)]"
                 : "text-[var(--muted)] hover:text-[var(--heading)]"
