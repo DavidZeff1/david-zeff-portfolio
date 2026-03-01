@@ -64,7 +64,7 @@ export default function HomePage() {
             </a>
 
             <a
-              href="/David-Zeff-English-Resume.pdf"
+              href="/David_Zeff_Resume2.docx"
               download
               className="flex items-center justify-center gap-2 px-4 py-2 text-sm md:text-base border rounded-lg bg-[var(--button-bg)] border-[var(--border)] hover:-rotate-2 transition-transform"
             >
