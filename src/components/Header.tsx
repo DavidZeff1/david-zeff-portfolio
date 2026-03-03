@@ -7,11 +7,14 @@ export default function Header() {
   const pathname = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDataDropdownOpen, setIsDataDropdownOpen] = useState(false);
+  const [isEduDropdownOpen, setIsEduDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileProjectsOpen, setIsMobileProjectsOpen] = useState(false);
   const [isMobileDataOpen, setIsMobileDataOpen] = useState(false);
+  const [isMobileEduOpen, setIsMobileEduOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const dataDropdownRef = useRef<HTMLDivElement>(null);
+  const eduDropdownRef = useRef<HTMLDivElement>(null);
 
   const mainLinks = [
     { href: "/", label: "Home" },
@@ -45,6 +48,25 @@ export default function Header() {
     },
   ];
 
+  const educationalProjectLinks = [
+    {
+      href: "https://istqb-jade.vercel.app/",
+      label: "ISTQB Preparation",
+    },
+    {
+      href: "https://data-analysis-teaching.vercel.app/",
+      label: "Data Science",
+    },
+    {
+      href: "https://german-tutor-one.vercel.app/",
+      label: "German Tutor",
+    },
+    {
+      href: "https://p-exam.vercel.app/",
+      label: "Probability",
+    },
+  ];
+
   // Close dropdowns when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -59,6 +81,12 @@ export default function Header() {
         !dataDropdownRef.current.contains(event.target as Node)
       ) {
         setIsDataDropdownOpen(false);
+      }
+      if (
+        eduDropdownRef.current &&
+        !eduDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsEduDropdownOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -81,6 +109,7 @@ export default function Header() {
     setIsMobileMenuOpen(false);
     setIsMobileProjectsOpen(false);
     setIsMobileDataOpen(false);
+    setIsMobileEduOpen(false);
   };
 
   return (
@@ -111,7 +140,7 @@ export default function Header() {
                 : "text-[var(--muted)] hover:text-[var(--heading)]"
             }`}
           >
-            More Projects
+            Job Search Assistants
             <svg
               className={`w-4 h-4 transition-transform ${
                 isDropdownOpen ? "rotate-180" : ""
@@ -184,6 +213,52 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsDataDropdownOpen(false)}
+                  className="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--heading)] hover:bg-[var(--muted)]/10 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Educational Projects Dropdown */}
+        <div ref={eduDropdownRef} className="relative">
+          <button
+            onClick={() => setIsEduDropdownOpen(!isEduDropdownOpen)}
+            className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
+              isEduDropdownOpen
+                ? "text-[var(--heading)]"
+                : "text-[var(--muted)] hover:text-[var(--heading)]"
+            }`}
+          >
+            Educational Projects
+            <svg
+              className={`w-4 h-4 transition-transform ${
+                isEduDropdownOpen ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          {isEduDropdownOpen && (
+            <div className="absolute top-full mt-2 left-0 min-w-[220px] bg-[var(--background)] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
+              {educationalProjectLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsEduDropdownOpen(false)}
                   className="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--heading)] hover:bg-[var(--muted)]/10 transition-colors"
                 >
                   {link.label}
@@ -341,6 +416,45 @@ export default function Header() {
             {isMobileDataOpen && (
               <div className="flex flex-col pl-4 gap-1">
                 {dataProjectLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMobileMenu}
+                    className="px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--heading)] rounded-lg hover:bg-[var(--muted)]/10 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {/* Educational Projects expandable */}
+            <button
+              onClick={() => setIsMobileEduOpen(!isMobileEduOpen)}
+              className="flex items-center justify-between px-4 py-3 text-base font-medium text-[var(--muted)] hover:text-[var(--heading)] rounded-lg transition-colors"
+            >
+              Educational Projects
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  isMobileEduOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {isMobileEduOpen && (
+              <div className="flex flex-col pl-4 gap-1">
+                {educationalProjectLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
