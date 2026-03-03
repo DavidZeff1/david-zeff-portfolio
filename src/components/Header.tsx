@@ -159,7 +159,7 @@ export default function Header() {
           </button>
 
           {isDropdownOpen && (
-            <div className="absolute top-full mt-2 left-0 min-w-[220px] bg-[var(--background)] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
+            <div style={{ backgroundColor: 'var(--bg)' }} className="absolute top-full mt-2 left-0 min-w-[220px] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
               {projectLinks.map((link) => (
                 <a
                   key={link.href}
@@ -205,7 +205,7 @@ export default function Header() {
           </button>
 
           {isDataDropdownOpen && (
-            <div className="absolute top-full mt-2 left-0 min-w-[240px] bg-[var(--background)] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
+            <div style={{ backgroundColor: 'var(--bg)' }} className="absolute top-full mt-2 left-0 min-w-[240px] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
               {dataProjectLinks.map((link) => (
                 <a
                   key={link.href}
@@ -251,7 +251,7 @@ export default function Header() {
           </button>
 
           {isEduDropdownOpen && (
-            <div className="absolute top-full mt-2 left-0 min-w-[220px] bg-[var(--background)] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
+            <div style={{ backgroundColor: 'var(--bg)' }} className="absolute top-full mt-2 left-0 min-w-[220px] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
               {educationalProjectLinks.map((link) => (
                 <a
                   key={link.href}
