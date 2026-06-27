@@ -21,15 +21,19 @@ export default function HomePage() {
           David Zeff
         </h1>
         <p className="text-sm font-light text-[var(--muted)] mb-8">
-          Analyst
+          Financial Analyst &amp; Administrator
         </p>
 
         <div className="max-w-2xl mx-auto p-6 rounded-md mb-8 ">
           <p className="text-sm md:text-base leading-loose text-[var(--fg)]">
-            Hi, I&apos;m David. I&apos;m a Computer Science graduate who loves
-            building things with code. Whether it&apos;s front-end, back-end, or
-            anywhere in between — if it involves problem-solving and
-            programming, I&apos;m all in.
+            Hi, I&apos;m David. I&apos;m a financial analyst and administrator
+            with a computer science background. I collect and analyze large
+            datasets to help my department make data-driven decisions, and I
+            build the tools, software, and reports that keep a complex budget
+            running. I love creating things — at this point I&apos;ve built more
+            projects than I can count, and a few are linked below. Always
+            looking for fellow geeks to geek out over the newest tech, so if you
+            want to collaborate or just chat, reach out.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mt-6">
