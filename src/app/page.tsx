@@ -467,18 +467,14 @@ export default function HomePage() {
 
         {/* big retro banner */}
         <div className="px-4 pt-4">
-          <pre
-            className="crt-glow leading-none text-[10px] xs:text-xs sm:text-base overflow-x-auto"
+          <h1
+            className="crt-glow leading-none tracking-[0.15em] text-5xl sm:text-7xl"
             style={{ color: t.color, fontFamily: "var(--font-pixel), monospace" }}
           >
-{`██████   █████  ██    ██ ██ ██████      ███████ ███████ ███████ ███████
-██   ██ ██   ██ ██    ██ ██ ██   ██     ███     █       █       █
-██   ██ ███████ ██    ██ ██ ██   ██      ███    ████    ████    ████
-██   ██ ██   ██  ██  ██  ██ ██   ██        ███  █       █       █
-██████  ██   ██   ████   ██ ██████     ███████  ███████ █       █`}
-          </pre>
+            DAVID ZEFF
+          </h1>
           <div
-            className="text-sm sm:text-base mb-3"
+            className="text-base sm:text-xl mt-1 mb-3 tracking-wide"
             style={{ color: t.accent, fontFamily: "var(--font-pixel), monospace" }}
           >
             &gt; FINANCIAL ANALYST &amp; ADMINISTRATOR · DATA-DRIVEN BUILDER
