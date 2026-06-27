@@ -43,3 +43,117 @@ body {
 ::selection {
   background: rgba(77, 179, 230, 0.4); /* Ocean blue at 40% */
 }
+
+/* ---------------- Retro CRT terminal ---------------- */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.82;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.9;
+  }
+  97% {
+    opacity: 1;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(120%);
+  }
+}
+
+@keyframes grow-bar {
+  from {
+    width: 0;
+  }
+}
+
+.crt {
+  position: relative;
+  overflow: hidden;
+}
+
+/* fine scanlines */
+.crt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 3px
+  );
+  pointer-events: none;
+  z-index: 3;
+  border-radius: inherit;
+}
+
+/* sweeping beam */
+.crt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0)
+  );
+  animation: scan 7s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.crt-glow {
+  text-shadow: 0 0 4px currentColor;
+}
+
+.crt-flicker {
+  animation: flicker 5s infinite;
+}
+
+.cursor-blink {
+  animation: blink 1.1s step-end infinite;
+}
+
+.bar-grow {
+  animation: grow-bar 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt::after,
+  .crt-flicker,
+  .cursor-blink,
+  .bar-grow {
+    animation: none;
+  }
+}
