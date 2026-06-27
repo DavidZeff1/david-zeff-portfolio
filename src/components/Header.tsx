@@ -8,13 +8,16 @@ export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDataDropdownOpen, setIsDataDropdownOpen] = useState(false);
   const [isEduDropdownOpen, setIsEduDropdownOpen] = useState(false);
+  const [isAnalystDropdownOpen, setIsAnalystDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileProjectsOpen, setIsMobileProjectsOpen] = useState(false);
   const [isMobileDataOpen, setIsMobileDataOpen] = useState(false);
   const [isMobileEduOpen, setIsMobileEduOpen] = useState(false);
+  const [isMobileAnalystOpen, setIsMobileAnalystOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const dataDropdownRef = useRef<HTMLDivElement>(null);
   const eduDropdownRef = useRef<HTMLDivElement>(null);
+  const analystDropdownRef = useRef<HTMLDivElement>(null);
 
   const mainLinks = [
     { href: "/", label: "Home" },
@@ -45,6 +48,13 @@ export default function Header() {
     {
       href: "https://keyword-trends-1.streamlit.app/",
       label: "Google Searches Analysis",
+    },
+  ];
+
+  const analystProjectLinks = [
+    {
+      href: "https://bank-churn-ashy.vercel.app/#overview",
+      label: "Bank Churn Analysis",
     },
   ];
 
@@ -88,6 +98,12 @@ export default function Header() {
       ) {
         setIsEduDropdownOpen(false);
       }
+      if (
+        analystDropdownRef.current &&
+        !analystDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsAnalystDropdownOpen(false);
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -110,6 +126,7 @@ export default function Header() {
     setIsMobileProjectsOpen(false);
     setIsMobileDataOpen(false);
     setIsMobileEduOpen(false);
+    setIsMobileAnalystOpen(false);
   };
 
   return (
@@ -259,6 +276,52 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsEduDropdownOpen(false)}
+                  className="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--heading)] hover:bg-[var(--muted)]/10 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Analyst Projects Dropdown */}
+        <div ref={analystDropdownRef} className="relative">
+          <button
+            onClick={() => setIsAnalystDropdownOpen(!isAnalystDropdownOpen)}
+            className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
+              isAnalystDropdownOpen
+                ? "text-[var(--heading)]"
+                : "text-[var(--muted)] hover:text-[var(--heading)]"
+            }`}
+          >
+            Analyst Projects
+            <svg
+              className={`w-4 h-4 transition-transform ${
+                isAnalystDropdownOpen ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+
+          {isAnalystDropdownOpen && (
+            <div style={{ backgroundColor: 'var(--bg)' }} className="absolute top-full mt-2 left-0 min-w-[220px] border border-[var(--muted)]/20 rounded-lg shadow-lg py-2 z-[9999]">
+              {analystProjectLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsAnalystDropdownOpen(false)}
                   className="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--heading)] hover:bg-[var(--muted)]/10 transition-colors"
                 >
                   {link.label}
@@ -455,6 +518,45 @@ export default function Header() {
             {isMobileEduOpen && (
               <div className="flex flex-col pl-4 gap-1">
                 {educationalProjectLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMobileMenu}
+                    className="px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--heading)] rounded-lg hover:bg-[var(--muted)]/10 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            {/* Analyst Projects expandable */}
+            <button
+              onClick={() => setIsMobileAnalystOpen(!isMobileAnalystOpen)}
+              className="flex items-center justify-between px-4 py-3 text-base font-medium text-[var(--muted)] hover:text-[var(--heading)] rounded-lg transition-colors"
+            >
+              Analyst Projects
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  isMobileAnalystOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            {isMobileAnalystOpen && (
+              <div className="flex flex-col pl-4 gap-1">
+                {analystProjectLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
