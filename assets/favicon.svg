@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="David Zeff">
+  <style>
+    .plate { fill: #111111; }
+    .mark  { fill: #fcfcfc; }
+    @media (prefers-color-scheme: dark) {
+      .plate { fill: #e9eaec; }
+      .mark  { fill: #101215; }
+    }
+  </style>
+  <rect class="plate" width="64" height="64" rx="13"/>
+  <!-- Letterforms are drawn as paths rather than <text> so the mark renders
+       identically wherever the favicon is composited, with no font to load. -->
+  <g class="mark">
+    <!-- D -->
+    <path d="M12 19h9.4c7.1 0 11.6 4.9 11.6 13s-4.5 13-11.6 13H12V19zm5.8 5v16h3.3c4 0 6.3-2.9 6.3-8s-2.3-8-6.3-8h-3.3z"/>
+    <!-- Z -->
+    <path d="M35.5 19H53v4.6L41.9 40.4H53V45H35.2v-4.6L46.3 23.6H35.5V19z"/>
+  </g>
+</svg>

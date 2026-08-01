@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Maven Toys México — David Zeff</title>
+<meta name="description" content="Case study: an exact mix-vs-rate bridge across 829,262 transaction lines attributed all 3.35 points of gross-margin decline to product mix, with a rate effect of zero.">
+<meta name="author" content="David Zeff">
+<link rel="canonical" href="https://www.david-zeff-portfolio.com/projects/maven-toys-mexico.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.david-zeff-portfolio.com/projects/maven-toys-mexico.html">
+<meta property="og:title" content="Maven Toys México — David Zeff">
+<meta property="og:description" content="The entire margin decline was product mix. The rate effect was zero.">
+<meta property="og:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="David Zeff, Data Analyst — Python, SQL, Tableau.">
+<meta property="og:site_name" content="David Zeff">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maven Toys México — David Zeff">
+<meta name="twitter:description" content="The entire margin decline was product mix. The rate effect was zero.">
+<meta name="twitter:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
+
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101215" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/style.css">
+
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "David Zeff", "item": "https://www.david-zeff-portfolio.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Selected work", "item": "https://www.david-zeff-portfolio.com/#work" },
+    { "@type": "ListItem", "position": 3, "name": "Maven Toys México" }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="../index.html">David Zeff<span> · Data Analyst</span></a>
+    <nav aria-label="Site">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="../index.html#work">All work</a></li>
+        <li><a class="nav-link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <header class="case-header">
+    <div class="wrap">
+      <a class="arrow-link arrow-link-back case-back" href="../index.html#work">All work</a>
+
+      <p class="case-eyebrow">Case study · Margin</p>
+      <h1 class="case-title">Maven Toys México</h1>
+      <p class="case-dek">The entire margin decline was product mix. The rate effect was zero.</p>
+
+      <dl class="case-facts">
+        <div class="case-fact">
+          <dt>Scale</dt>
+          <dd>829,262 transaction lines · 50 stores · 29 cities</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Role</dt>
+          <dd>Sole analyst — raw extract to dashboard</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Source</dt>
+          <dd><span class="todo">[[REPLACE: dataset name, link and licence]]</span></dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ── Context ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Context</h2>
+      <div class="prose" data-reveal>
+        <p>
+          A 50-store toy retailer trading across 29 Mexican cities grew revenue 30.9% year on
+          year. Gross profit grew 16.0%.
+        </p>
+        <p>
+          When those two numbers separate, somebody has to explain the gap before the next buying
+          cycle — because the explanation decides which department acts. If margins fell because
+          products are being sold at worse margins, that is a pricing problem. If they fell
+          because the shop is selling proportionally more of the cheap stuff, that is an
+          assortment problem. Different owners, different budgets, and the intuitive answer is
+          usually the wrong one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The data ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">The data</h2>
+      <div class="prose" data-reveal>
+        <p>
+          <span class="todo">[[REPLACE: dataset name and link]]</span> — 829,262 transaction
+          lines from 50 stores across 29 cities, joined to a product table carrying cost and
+          retail price, and to a store table carrying location and opening date.
+        </p>
+        <p>
+          <span class="todo">[[REPLACE: what was wrong with it. Strong candidates from a dataset
+          of this shape: stores that opened mid-period and therefore distort a like-for-like
+          year-on-year comparison; SKUs missing a cost and so silently excluded from margin;
+          returns or zero-quantity lines; the number of rows you dropped and on what rule. Say
+          how many rows each issue touched — “0.3% of lines” is a very different statement from
+          “12% of lines”.]]</span>
+        </p>
+        <p>
+          <span class="todo">[[REPLACE: describe the cost join, because it bounds what the bridge
+          can claim. Is cost carried on the transaction line, or on the product record? If it
+          sits on the product record, gross profit is being computed at current cost rather than
+          cost at time of sale — meaning a mid-period cost change is applied retroactively across
+          the whole history. That is worth one honest sentence either way.]]</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Approach ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Approach</h2>
+      <div data-reveal>
+        <div class="prose">
+          <p>
+            Revenue up 30.9%, gross profit up 16.0%, gross margin down 3.35 percentage points. A
+            margin movement has exactly two possible sources: you sold a different mix of things
+            (<em>mix</em>), or you sold the same things at different margins (<em>rate</em>). The
+            first job is to attribute the decline between the two rather than to argue about it.
+          </p>
+        </div>
+
+        <figure class="case-figure">
+          <div class="case-figure-frame" style="--chart-bg: #0c0c0c;">
+            <img src="../assets/projects/maven-toys-monthly-gross-margin.png"
+                 width="1300" height="905" loading="lazy" decoding="async"
+                 alt="Line chart of monthly gross margin from January 2022 to September 2023. It falls from 30.8% in January 2022, spikes to 32.5% in July 2022, then erodes steadily to a 25.3% low in July 2023 before recovering to 27.4% by September 2023.">
+          </div>
+          <figcaption>
+            Monthly gross margin, plotted on its own axis rather than stacked against revenue on
+            a second one — a dual axis lets the reader draw whatever relationship they already
+            believe in.
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <p>
+            I ran an exact mix-vs-rate bridge across the category level. The bridge attributed
+            <strong>100% of the −3.35pp decline to mix, with a rate effect of exactly
+            zero</strong>: category margins did not move at all. What changed was the weight of
+            each category in the basket.
+          </p>
+        </div>
+
+        <figure class="case-figure">
+          <div class="case-figure-frame" style="--chart-bg: #0c0c0c;">
+            <img src="../assets/projects/maven-toys-revenue-change-by-category.png"
+                 width="1300" height="945" loading="lazy" decoding="async"
+                 alt="Horizontal bar chart of revenue change by category, January to September 2023 versus the same months of 2022. Art and Crafts grew $1.29M, Toys $286K, Sports and Outdoors $211K, Games $168K, while Electronics fell $311K. Art and Crafts alone accounts for 57% of the absolute change.">
+          </div>
+          <figcaption>
+            Where the mix moved. Art &amp; Crafts alone contributed 57% of the absolute revenue
+            change; Electronics was the only category to decline.
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <p>
+            Art &amp; Crafts grew $1.29M year on year while Electronics fell $311K — a swing of
+            more than $1.6M between two categories that earn very different margins.
+            <span class="todo">[[REPLACE: state the gross margin rate of Art &amp; Crafts against
+            Electronics. Those two numbers are the mechanism of the whole finding and a reader
+            will want them here rather than having to infer them.]]</span>
+          </p>
+          <p>
+            <strong>Why an exact bridge rather than reading the category chart.</strong> The
+            category chart shows that the mix shifted. It does not show how much of the margin
+            decline that shift accounts for — and “mostly mix” and “100% mix, 0% rate” lead to
+            two different conversations with a buying team. A decomposition that sums exactly to
+            the observed change is falsifiable: if the two effects had not summed to −3.35pp, the
+            method would have told me so. A directional read cannot be wrong, which is precisely
+            what is wrong with it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Result ───────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Result</h2>
+      <div data-reveal>
+        <div class="case-result" style="margin-block-start: 0;">
+          <p>
+            All 3.35 points of margin decline attributed to mix. Rate effect: zero.
+          </p>
+        </div>
+
+        <div class="prose">
+          <p>
+            The chain was buying its growth with margin, and the bridge says precisely how much
+            it paid. That points the fix at assortment and promotional planning rather than at
+            pricing — and pricing is exactly where “our margins are falling” would have sent a
+            team working from intuition. A price response would have been aimed at a rate effect
+            that measurably does not exist.
+          </p>
+          <p>
+            The monthly series tells the same story over time: a steady erosion from 30.8% in
+            January 2022 to a 25.3% low in July 2023, then a recovery to 27.4% by September 2023.
+            <span class="todo">[[REPLACE: was that recovery a deliberate intervention, or mix
+            drifting back on its own? If you know, say which. If you don’t, say that — an
+            unexplained recovery is a finding too, and naming it as open is better than
+            implying you closed it.]]</span>
+          </p>
+          <p>
+            <span class="todo">[[REPLACE: the decision this enabled or the recommendation you
+            made. Be concrete about who acts and on what: a buying team changing category
+            targets, a promotional calendar, a store-level assortment rule.]]</span>
+          </p>
+        </div>
+
+        <p class="case-caveat">
+          <strong>What this cannot show.</strong> A mix-vs-rate bridge is an accounting identity,
+          not a causal claim. It says where the margin went; it does not say why the mix shifted.
+          Whether Art &amp; Crafts grew on demand, on promotion, on an assortment decision or on
+          new store openings is a separate question, and this decomposition cannot answer it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stack ────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Stack</h2>
+      <div data-reveal>
+        <ul class="stack-tags">
+          <li>Python</li>
+          <li>pandas</li>
+          <li>ABC / Pareto</li>
+          <li>Mix-vs-rate bridging</li>
+          <li>Inventory analysis</li>
+        </ul>
+        <div class="btn-row" style="margin-block-start: var(--space-xl);">
+          <a class="btn btn-secondary" href="https://mexico-toy-sales.vercel.app" target="_blank" rel="noopener">Live dashboard</a>
+          <a class="btn btn-secondary" href="https://github.com/DavidZeff1/mexico-toy-sales" target="_blank" rel="noopener">Code on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="case-nav" aria-label="Case studies">
+      <a class="case-nav-item" href="bank-customer-churn.html">
+        <span class="case-nav-key">Previous</span>
+        <span class="case-nav-title">Bank Customer Churn</span>
+      </a>
+      <a class="case-nav-item" href="coffee-shop-sales.html">
+        <span class="case-nav-key">Next</span>
+        <span class="case-nav-title">Coffee Shop Sales</span>
+      </a>
+    </nav>
+  </div>
+
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© <span class="tabular">2026</span> David Zeff</p>
+    <p><a href="../index.html">Back to the portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>

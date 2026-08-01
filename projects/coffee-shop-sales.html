@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Coffee Shop Sales — David Zeff</title>
+<meta name="description" content="Case study: decomposing Revenue = Orders × AOV across 149,116 transaction lines showed growth was 100% traffic — and a grain error had been understating average order value by 27%.">
+<meta name="author" content="David Zeff">
+<link rel="canonical" href="https://www.david-zeff-portfolio.com/projects/coffee-shop-sales.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.david-zeff-portfolio.com/projects/coffee-shop-sales.html">
+<meta property="og:title" content="Coffee Shop Sales — David Zeff">
+<meta property="og:description" content="Every dollar of growth came from traffic. Basket size never moved.">
+<meta property="og:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="David Zeff, Data Analyst — Python, SQL, Tableau.">
+<meta property="og:site_name" content="David Zeff">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Coffee Shop Sales — David Zeff">
+<meta name="twitter:description" content="Every dollar of growth came from traffic. Basket size never moved.">
+<meta name="twitter:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
+
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101215" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/style.css">
+
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "David Zeff", "item": "https://www.david-zeff-portfolio.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Selected work", "item": "https://www.david-zeff-portfolio.com/#work" },
+    { "@type": "ListItem", "position": 3, "name": "Coffee Shop Sales" }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="../index.html">David Zeff<span> · Data Analyst</span></a>
+    <nav aria-label="Site">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="../index.html#work">All work</a></li>
+        <li><a class="nav-link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <header class="case-header">
+    <div class="wrap">
+      <a class="arrow-link arrow-link-back case-back" href="../index.html#work">All work</a>
+
+      <p class="case-eyebrow">Case study · Growth decomposition</p>
+      <h1 class="case-title">Coffee Shop Sales</h1>
+      <p class="case-dek">Every dollar of growth came from traffic. Basket size never moved.</p>
+
+      <dl class="case-facts">
+        <div class="case-fact">
+          <dt>Scale</dt>
+          <dd>149,116 transaction lines · 3 NYC stores · 6 months</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Role</dt>
+          <dd>Sole analyst — raw extract to dashboard</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Source</dt>
+          <dd><span class="todo">[[REPLACE: dataset name, link and licence]]</span></dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ── Context ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Context</h2>
+      <div class="prose" data-reveal>
+        <p>
+          Three coffee shops in New York more than doubled revenue over six months. Before anyone
+          credits a price change, a new menu or a marketing push, it is worth establishing which
+          lever actually moved.
+        </p>
+        <p>
+          Revenue is Orders × Average Order Value, and those two are driven by entirely different
+          things. More people through the door is a location, hours and awareness problem. A
+          bigger basket is a menu, pricing and upsell problem. Knowing which one produced the
+          growth decides where the next effort goes — and the answer is not visible in a revenue
+          chart.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The data ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">The data</h2>
+      <div class="prose" data-reveal>
+        <p>
+          <span class="todo">[[REPLACE: dataset name and link]]</span> — 149,116 transaction
+          lines across three stores over six months, carrying timestamp, store, product, unit
+          price and quantity.
+        </p>
+        <p>
+          <strong>The grain was wrong, and it mattered.</strong> <code>transaction_id</code>
+          looks like an order identifier and was being used as one. It is not: it identifies a
+          <em>line item</em>. A customer buying a latte and a croissant produces two
+          “transactions”. Average order value was therefore being reported as $4.69 when the true
+          figure — after grouping lines back into orders — is <strong>$5.98</strong>, 27% higher.
+        </p>
+        <p>
+          That class of error survives indefinitely, because the wrong number looks entirely
+          plausible. Nothing about a $4.69 average is suspicious for a coffee shop. It only
+          surfaces if you check what one row represents before dividing by it, and it corrupts
+          every downstream metric with an order count in the denominator.
+        </p>
+        <p>
+          <span class="todo">[[REPLACE: anything else you had to clean — duplicate lines,
+          zero-value or refund rows, products with a null price, timestamps outside trading
+          hours. Include how many rows were affected, and whether you dropped or kept
+          them.]]</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Approach ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Approach</h2>
+      <div data-reveal>
+        <div class="prose">
+          <p>
+            Decompose revenue into its two components and look at each on its own:
+            Revenue = Orders × AOV.
+          </p>
+          <p>
+            Over the six months, <strong>orders grew 104%</strong> while
+            <strong>average order value moved −0.1%</strong>. One lever did all of the work and
+            the other sat completely untouched. That reframes the question from “why is revenue
+            up” to “what is bringing more people through the door, and can we do more of it”.
+          </p>
+          <p>
+            The second correction was the time comparison. A raw month-over-month total makes
+            February look like a decline — purely because it is three days shorter than January.
+          </p>
+        </div>
+
+        <figure class="case-figure">
+          <div class="case-figure-frame" style="--chart-bg: #0d0d0d;">
+            <img src="../assets/projects/coffee-shop-revenue-per-trading-day.png"
+                 width="1300" height="835" loading="lazy" decoding="async"
+                 alt="Bar chart of revenue per trading day by month from January to June. February, highlighted in green, is slightly above January at about $2,700 per day, and the series then rises steadily to about $5,500 per day in June.">
+          </div>
+          <figcaption>
+            Revenue per trading day. On a per-day basis February grew 3.2% — month-length
+            normalisation flips the sign of the result.
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <p>
+            <strong>Why decomposition before segmentation.</strong> With revenue moving this
+            much, cutting the data by store, product or hour would have shown growth almost
+            everywhere and explained nothing. The identity narrows the question first: once you
+            know basket size is flat, every basket-side cut can be set aside, and the traffic
+            side is worth the detailed look. Segmentation is much more informative after the
+            question has been narrowed than before.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Result ───────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Result</h2>
+      <div data-reveal>
+        <div class="case-result" style="margin-block-start: 0;">
+          <p>
+            Growth was 100% traffic and 0% basket — and the true AOV was $5.98, not $4.69.
+          </p>
+        </div>
+
+        <div class="prose">
+          <p>
+            Two things came out of it. The corrected average order value replaced $4.69 as the
+            baseline for every metric that divides by order count. And the growth attribution
+            means effort should go to the levers that affect footfall — while any initiative
+            aimed at raising basket size now starts from the knowledge that six months of trading
+            did not move it at all.
+          </p>
+          <p>The traffic itself turns out to be heavily concentrated.</p>
+        </div>
+
+        <figure class="case-figure">
+          <div class="case-figure-frame" style="--chart-bg: #0d0d0d;">
+            <img src="../assets/projects/coffee-shop-revenue-by-daypart.png"
+                 width="1300" height="961" loading="lazy" decoding="async"
+                 alt="Bar chart of revenue by daypart. Morning Peak is the tallest at about $255,000, roughly double Midday and Afternoon at about $125,000 each, with Evening near $105,000 and Early Morning lowest at about $85,000.">
+          </div>
+          <figcaption>
+            Morning Peak (08:00–10:59) accounts for 36.7% of revenue in three of fifteen trading
+            hours.
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <p>
+            <span class="todo">[[REPLACE: what you recommended on the back of the daypart
+            concentration — staffing against the morning peak, pre-order or throughput at the
+            counter, a targeted off-peak play. One or two concrete sentences; this is the part
+            that shows you can turn a chart into a decision.]]</span>
+          </p>
+        </div>
+
+        <p class="case-caveat">
+          <strong>What this cannot show.</strong> Six months of trading from a single business,
+          with no control period and no price history: the decomposition describes what happened,
+          not what caused it. “Traffic grew” is an observation about the mechanism of growth, not
+          an explanation of its source.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stack ────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Stack</h2>
+      <div data-reveal>
+        <ul class="stack-tags">
+          <li>Python</li>
+          <li>pandas</li>
+          <li>Plotly</li>
+          <li>Market-basket analysis</li>
+          <li>KPI design</li>
+        </ul>
+        <div class="btn-row" style="margin-block-start: var(--space-xl);">
+          <a class="btn btn-secondary" href="https://maven-roasters-analysis.vercel.app" target="_blank" rel="noopener">Live dashboard</a>
+          <a class="btn btn-secondary" href="https://github.com/DavidZeff1/coffee-shop-sales-analysis" target="_blank" rel="noopener">Code on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="case-nav" aria-label="Case studies">
+      <a class="case-nav-item" href="maven-toys-mexico.html">
+        <span class="case-nav-key">Previous</span>
+        <span class="case-nav-title">Maven Toys México</span>
+      </a>
+      <a class="case-nav-item" href="airline-loyalty-program.html">
+        <span class="case-nav-key">Next</span>
+        <span class="case-nav-title">Airline Loyalty Program</span>
+      </a>
+    </nav>
+  </div>
+
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© <span class="tabular">2026</span> David Zeff</p>
+    <p><a href="../index.html">Back to the portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>

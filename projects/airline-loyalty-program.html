@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Airline Loyalty Program — David Zeff</title>
+<meta name="description" content="Case study: measuring a 2018 loyalty acquisition campaign against a trend-adjusted counterfactual and a difference-in-differences, across 16,737 members and 389,065 member-months.">
+<meta name="author" content="David Zeff">
+<link rel="canonical" href="https://www.david-zeff-portfolio.com/projects/airline-loyalty-program.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.david-zeff-portfolio.com/projects/airline-loyalty-program.html">
+<meta property="og:title" content="Airline Loyalty Program — David Zeff">
+<meta property="og:description" content="A +54% headline was really +40.7% once the trend was accounted for.">
+<meta property="og:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="David Zeff, Data Analyst — Python, SQL, Tableau.">
+<meta property="og:site_name" content="David Zeff">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Airline Loyalty Program — David Zeff">
+<meta name="twitter:description" content="A +54% headline was really +40.7% once the trend was accounted for.">
+<meta name="twitter:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
+
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101215" media="(prefers-color-scheme: dark)">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../css/style.css">
+
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "David Zeff", "item": "https://www.david-zeff-portfolio.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Selected work", "item": "https://www.david-zeff-portfolio.com/#work" },
+    { "@type": "ListItem", "position": 3, "name": "Airline Loyalty Program" }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="../index.html">David Zeff<span> · Data Analyst</span></a>
+    <nav aria-label="Site">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="../index.html#work">All work</a></li>
+        <li><a class="nav-link" href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <header class="case-header">
+    <div class="wrap">
+      <a class="arrow-link arrow-link-back case-back" href="../index.html#work">All work</a>
+
+      <p class="case-eyebrow">Case study · Campaign measurement</p>
+      <h1 class="case-title">Airline Loyalty Program</h1>
+      <p class="case-dek">A +54% headline was really +40.7% once the trend was accounted for.</p>
+
+      <dl class="case-facts">
+        <div class="case-fact">
+          <dt>Scale</dt>
+          <dd>16,737 members · 389,065 member-months</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Role</dt>
+          <dd>Sole analyst — raw extract to dashboard</dd>
+        </div>
+        <div class="case-fact">
+          <dt>Source</dt>
+          <dd><span class="todo">[[REPLACE: dataset name, link and licence]]</span></dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ── Context ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Context</h2>
+      <div class="prose" data-reveal>
+        <p>
+          An airline ran an acquisition campaign for its loyalty programme in February–April
+          2018. Enrolments for the year came in 54% above 2017, and that is the number that
+          would ordinarily go into the review deck.
+        </p>
+        <p>
+          But “enrolments were up 54%” and “the campaign produced 54% more members” are different
+          claims, and only the second one justifies running it again. Attributing the whole
+          year-on-year difference to the campaign assumes enrolments would otherwise have been
+          flat — and the programme was already growing, so they would not have been.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── The data ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">The data</h2>
+      <div data-reveal>
+        <div class="prose">
+          <p>
+            <span class="todo">[[REPLACE: dataset name and link]]</span> — 16,737 loyalty members
+            expanded into 389,065 member-months, carrying enrolment date, cancellation date,
+            monthly flight activity and customer lifetime value.
+          </p>
+          <p>
+            One artefact dominates the cancellation data, and it had to be understood before
+            anything downstream could be trusted.
+          </p>
+        </div>
+
+        <figure class="case-figure">
+          <div class="case-figure-frame" style="--chart-bg: #0b0b0b;">
+            <img src="../assets/projects/airline-loyalty-churn-concentration.png"
+                 width="1300" height="1212" loading="lazy" decoding="async"
+                 alt="Histogram of tenure at cancellation across all 2,067 cancellations. A single red bar at month 8 reaches about 1,050 cancellations while every other month sits below 60, making the month-8 spike 29 times the neighbouring months.">
+          </div>
+          <figcaption>
+            Half of all churn lands on one date. A spike this precise is not customer behaviour.
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <p>
+            1,048 of 2,067 cancellations — 51% — fall on exactly month 8 of membership, 29× the
+            neighbouring months. A spike that sharp is not a behavioural pattern, it is a
+            contract term expiring: the programme carries an eight-month introductory period and
+            a large share of members leave the moment it lapses.
+          </p>
+          <p>
+            That changes what the churn series means. A survival curve fitted to this data would
+            be describing a contractual cliff rather than a decay process, and any “average
+            tenure” statistic would be an artefact of the contract length. It is also, as it
+            happens, the highest-leverage retention target in the business — because unlike
+            ordinary churn, the date is known in advance for every single member. In 2018 alone
+            that one moment cost $2.67M of CLV across 325 members.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Approach ─────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Approach</h2>
+      <div data-reveal>
+        <div class="prose">
+          <p>
+            Rather than the raw year-on-year comparison, I measured 2018 against a
+            <strong>trend-adjusted counterfactual</strong>: what the programme would have
+            enrolled on its pre-campaign trajectory, subtracted from what it actually enrolled.
+            That gives <strong>+281 incremental members, or +40.7%</strong> — a real result, and
+            materially smaller than the +54% headline.
+          </p>
+          <p>
+            Against a $332 customer acquisition cost and a mean CLV of $8,047, the campaign pays
+            back comfortably even on the conservative figure. That is the point of using the
+            conservative figure: a result that survives the honest comparison does not need the
+            flattering one, and quoting +54% to a finance director who can subtract a trend line
+            costs more credibility than the extra 13 points are worth.
+          </p>
+          <p>
+            The second question is whether the campaign did anything for members who were
+            <em>already</em> enrolled — who by definition cannot appear in an enrolment count.
+          </p>
+        </div>
+
+        <figure class="case-figure">
+          <div class="case-figure-frame" style="--chart-bg: #0b0b0b;">
+            <img src="../assets/projects/airline-loyalty-did-by-month.png"
+                 width="1300" height="1074" loading="lazy" decoding="async"
+                 alt="Bar chart of year-on-year change in flights by month for members enrolled in both years. January to April hover near zero, from plus 1.9% to minus 3.6%, with the February to April campaign window shaded. From May onward every month sits between plus 9.5% and plus 12.9%, a step change rather than a gradual drift.">
+          </div>
+          <figcaption>
+            Difference-in-differences among existing members: −0.3% before, +10.7% after. The
+            shape is a step at May, not a drift.
+          </figcaption>
+        </figure>
+
+        <div class="prose">
+          <p>
+            Year-on-year flight activity for that group ran −0.3% across January–April and +10.7%
+            across May–December: a <strong>+11.0 percentage-point difference-in-differences</strong>.
+            Their monthly active rate rose from 43.0% to 48.2% over the same period.
+          </p>
+          <p>
+            The shape matters as much as the size. It is a step at May, not a gradual climb —
+            which is what a discrete intervention looks like, and not what a slowly improving
+            market looks like.
+          </p>
+          <p>
+            <strong>Why difference-in-differences rather than a before/after.</strong> Air travel
+            is strongly seasonal. A straight comparison of May–December against January–April
+            inside 2018 would have measured summer, not the campaign. Differencing against the
+            same months of the prior year removes anything that repeats annually, so what is left
+            is the change specific to 2018 — which is the only part the campaign could have
+            caused.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Result ───────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Result</h2>
+      <div data-reveal>
+        <div class="case-result" style="margin-block-start: 0;">
+          <p>
+            +281 incremental members (+40.7%), $332 CAC against $8,047 mean CLV, and +11.0pp of
+            flight activity among members who were already enrolled.
+          </p>
+        </div>
+
+        <div class="prose">
+          <p>
+            The campaign worked, and it worked about three-quarters as well as the raw comparison
+            implied. Both halves of that sentence are the deliverable: the correction is as
+            useful as the number, because it sets the benchmark the next campaign will be judged
+            against — and a benchmark inflated by trend is one that no future campaign can beat
+            honestly.
+          </p>
+          <p>
+            The month-8 cliff found in the cancellation data is the separate, larger prize. It is
+            a known-in-advance date on every member record, and in 2018 it cost $2.67M of CLV
+            across 325 members.
+            <span class="todo">[[REPLACE: what you recommended against the month-8 cliff — a
+            retention contact ahead of the lapse date, a renewal offer, a change to the
+            introductory term itself. One or two concrete sentences.]]</span>
+          </p>
+        </div>
+
+        <p class="case-caveat">
+          <strong>Read with care.</strong> One airline, and no untreated control market.
+          Seasonality is controlled by comparing like months a year apart, but a mid-2018 shift in
+          travel demand affecting everyone cannot be ruled out — it would show up in this data as
+          a campaign effect and nothing here could distinguish the two. This is strongly
+          suggestive, not causal proof, and it should be quoted that way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stack ────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap section-grid">
+      <h2 class="section-label">Stack</h2>
+      <div data-reveal>
+        <ul class="stack-tags">
+          <li>Python</li>
+          <li>pandas</li>
+          <li>Difference-in-differences</li>
+          <li>CLV / CAC</li>
+          <li>Cohort analysis</li>
+        </ul>
+        <div class="btn-row" style="margin-block-start: var(--space-xl);">
+          <a class="btn btn-secondary" href="https://airline-loyalty-analytics.vercel.app" target="_blank" rel="noopener">Live dashboard</a>
+          <a class="btn btn-secondary" href="https://github.com/DavidZeff1/airline-loyalty-analytics" target="_blank" rel="noopener">Code on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <nav class="case-nav" aria-label="Case studies">
+      <a class="case-nav-item" href="coffee-shop-sales.html">
+        <span class="case-nav-key">Previous</span>
+        <span class="case-nav-title">Coffee Shop Sales</span>
+      </a>
+      <a class="case-nav-item" href="bank-customer-churn.html">
+        <span class="case-nav-key">Next</span>
+        <span class="case-nav-title">Bank Customer Churn</span>
+      </a>
+    </nav>
+  </div>
+
+</article>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© <span class="tabular">2026</span> David Zeff</p>
+    <p><a href="../index.html">Back to the portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../js/main.js" defer></script>
+</body>
+</html>
