@@ -6,7 +6,9 @@
  * compressed version for the terminal at /terminal. Charts are real captures
  * from the live dashboards, so the imagery and the claim can't drift apart.
  */
-export type Chart = { src: string; alt: string };
+/** `bg` is sampled from the image itself, so letterboxing it into a
+    fixed-ratio frame is invisible. */
+export type Chart = { src: string; alt: string; bg?: string };
 
 export const caseStudies = [
   {
@@ -20,6 +22,7 @@ export const caseStudies = [
     charts: [
       {
         src: "/images/charts/coffee-hero.png",
+        bg: "#0d0d0d",
         alt: "Bar chart of revenue per trading day by month",
       },
       {
@@ -42,6 +45,7 @@ export const caseStudies = [
     charts: [
       {
         src: "/images/charts/mexico-hero.png",
+        bg: "#0c0c0c",
         alt: "Line chart of monthly gross margin over time",
       },
       {
@@ -64,6 +68,7 @@ export const caseStudies = [
     charts: [
       {
         src: "/images/charts/airline-hero.png",
+        bg: "#0b0b0b",
         alt: "Difference-in-differences bar chart of year-on-year flight change by month",
       },
       {
@@ -86,6 +91,7 @@ export const caseStudies = [
     charts: [
       {
         src: "/images/charts/bank-hero.png",
+        bg: "#ecf0f5",
         alt: "Two bar charts: churn by geography and churn by number of products",
       },
       {
