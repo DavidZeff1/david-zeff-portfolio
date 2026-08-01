@@ -40,6 +40,48 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Display face for headings and pull-quotes — pairs with Charter on the PDF. */
+.font-display {
+  font-family: var(--font-serif), Charter, Georgia, serif;
+}
+
+/* Hero entrance. Deliberately runs once on load rather than on scroll: a
+   scroll-triggered reveal can leave content invisible if the observer never
+   fires, and on a portfolio nothing is worth that risk. `both` guarantees the
+   element ends — and starts, if animations are unsupported — fully visible. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.fade-up-1 {
+  animation-delay: 0.1s;
+}
+.fade-up-2 {
+  animation-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 ::selection {
   background: rgba(77, 179, 230, 0.4); /* Ocean blue at 40% */
 }

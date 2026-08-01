@@ -21,6 +21,7 @@ export default function Header() {
 
   const mainLinks = [
     { href: "/", label: "Home" },
+    { href: "/terminal", label: "Terminal" },
     { href: "/leetcode", label: "LeetCode Roadmap" },
     { href: "/stepblocker", label: "StepBlocker" },
   ];

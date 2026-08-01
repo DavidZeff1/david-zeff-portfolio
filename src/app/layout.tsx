@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, VT323 } from "next/font/google";
+import { Inter, JetBrains_Mono, VT323, Source_Serif_4 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import Header from "@/components/Header";
@@ -8,6 +8,12 @@ import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+// Echoes Charter on the resume, so the site and the PDF read as one identity.
+const serif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 const pixel = VT323({
   subsets: ["latin"],
   weight: "400",
@@ -44,7 +50,7 @@ export default function RootLayout({
       </Script>
 
       <body
-        className={`${inter.className} ${mono.variable} ${pixel.variable} bg-[var(--bg)] text-[var(--fg)] min-h-screen transition-colors`}
+        className={`${inter.className} ${mono.variable} ${pixel.variable} ${serif.variable} bg-[var(--bg)] text-[var(--fg)] min-h-screen transition-colors`}
       >
         <main className="max-w-6xl mx-auto px-4 py-12">
           <Header />
