@@ -3,31 +3,31 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---------------- Theme tokens ---------------- */
+/* ---------------- Theme tokens ----------------
+   Paper-white and near-black, with a single accent: the same deep navy the
+   resume PDF is set in, so the site and the document read as one identity.
+   The dashboard screenshots are dark, and land on this page as objects. */
 :root {
-  /* Core - Night Beach */
-  --bg: #1a2633; /* Deep ocean at dusk */
-  --fg: #e0d6c8; /* Soft sand/cream for body text */
-  --heading: #f0c866; /* Warm sunset gold for headings */
-  --muted: #8a9bab; /* Faded horizon blue-gray */
+  --bg: #ffffff;
+  --fg: #1c1c1f; /* body — near-black, never pure */
+  --heading: #0a0a0c;
+  --muted: #6d6d75; /* meta, captions, secondary copy */
+  --faint: #9a9aa1;
 
-  /* Surfaces - Twilight Textures */
-  --card: #243241; /* Darker sand/shallow water */
-  --button-bg: #2c3d4f; /* Interactive - like wet sand */
-  --tag-bg: #2f4050; /* Calm tide pool */
-  --pill-bg: #344455; /* Soft wave */
+  --card: #fbfbfa;
+  --button-bg: #ffffff;
+  --tag-bg: #f5f5f3;
+  --pill-bg: #f5f5f3;
 
-  /* Borders & accents - Ocean & Sunset */
-  --border: #3d5468; /* Gentle wave line */
-  --accent: #4db3e6; /* Bright tropical water */
-  --accent-contrast: #1a2633; /* Text on accent */
+  --border: #e6e5e1; /* hairlines — warm, low contrast */
+  --rule: #ecebe8;
+  --accent: #1f3c5c; /* the resume navy */
+  --accent-contrast: #ffffff;
 
-  /* Icons / misc */
-  --icon: #6bc5eb; /* Light ocean blue */
-  --linkedin: #0077b5;
-  --yellow-glow: #f5d36e; /* Sunset accent */
+  --icon: #6d6d75;
+  --linkedin: #0a66c2;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -40,40 +40,20 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Display face for headings and pull-quotes — pairs with Charter on the PDF. */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display face — pairs with Charter on the PDF. */
 .font-display {
   font-family: var(--font-serif), Charter, Georgia, serif;
+  font-weight: 400;
 }
 
-/* Hero entrance. Deliberately runs once on load rather than on scroll: a
-   scroll-triggered reveal can leave content invisible if the observer never
-   fires, and on a portfolio nothing is worth that risk. `both` guarantees the
-   element ends — and starts, if animations are unsupported — fully visible. */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.fade-up {
-  animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
-}
-.fade-up-1 {
-  animation-delay: 0.1s;
-}
-.fade-up-2 {
-  animation-delay: 0.2s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fade-up {
-    animation: none;
-  }
+/* Numerals that line up in tables and stat rows. */
+.nums {
+  font-variant-numeric: tabular-nums;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -83,7 +63,7 @@ body {
 }
 
 ::selection {
-  background: rgba(77, 179, 230, 0.4); /* Ocean blue at 40% */
+  background: rgba(31, 60, 92, 0.14);
 }
 
 /* ---------------- Retro CRT terminal ---------------- */

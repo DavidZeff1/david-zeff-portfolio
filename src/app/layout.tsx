@@ -52,7 +52,10 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${mono.variable} ${pixel.variable} ${serif.variable} bg-[var(--bg)] text-[var(--fg)] min-h-screen transition-colors`}
       >
-        <main className="max-w-6xl mx-auto px-4 py-12">
+        {/* No max-width here: the homepage wants a narrow reading measure,
+            the LeetCode roadmap wants the full canvas. Each page owns its
+            own container; this only supplies the gutter. */}
+        <main className="px-6 py-12 md:py-20">
           <Header />
           {children}
         </main>
