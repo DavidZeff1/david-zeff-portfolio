@@ -8,7 +8,7 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
-import { projects } from "@/lib/projects";
+import { analyticsProjects, softwareProjects } from "@/lib/projects";
 import Footer from "@/components/Footer";
 import Dashboard from "@/components/terminal/Dashboard";
 import Snake from "@/components/terminal/Snake";
@@ -38,6 +38,17 @@ const COMMANDS = [
 
 /* discoverable easter eggs */
 const SECRETS = ["coffee", "sudo", "matrix", "snake", "theme", "konami"] as const;
+
+/* Mirrors the SKILLS block on the resume. Grouped rather than rated — a
+   self-assigned "problem solving 98%" isn't a number anyone can check. */
+const SKILL_GROUPS: [string, string][] = [
+  ["programming", "Python · SQL · PostgreSQL · MySQL"],
+  ["analysis", "pandas · NumPy · A/B testing · hypothesis testing · regression"],
+  ["viz & bi", "Tableau · Matplotlib · Seaborn · Streamlit · Plotly"],
+  ["data handling", "ETL · Excel · Google Sheets · Jupyter"],
+  ["engineering", "TypeScript · React · Next.js · Node.js · Docker"],
+  ["languages", "Hebrew — native · English — native"],
+];
 
 /* ----------------------------- helper widgets ------------------------------ */
 function sparkline(values: number[]) {
@@ -105,29 +116,6 @@ function LiveFeed({ dim }: { dim: string }) {
       <span className="crt-glow tracking-tighter">{sparkline(series)}</span>
       <span>{delta >= 0 ? "▲" : "▼"} {Math.abs(delta).toFixed(1)}%</span>
       <span>{clock}</span>
-    </div>
-  );
-}
-
-/** Animated horizontal bar chart. */
-function BarChart({
-  rows, color, dim,
-}: {
-  rows: { label: string; value: number; note?: string }[];
-  color: string;
-  dim: string;
-}) {
-  return (
-    <div className="my-1 space-y-1">
-      {rows.map((r) => (
-        <div key={r.label} className="flex items-center gap-2 text-xs sm:text-sm">
-          <span className="w-28 shrink-0 text-right" style={{ color: dim }}>{r.label}</span>
-          <span className="flex-1 h-3 rounded-sm" style={{ background: "rgba(255,255,255,0.06)" }}>
-            <span className="block h-3 rounded-sm bar-grow crt-glow" style={{ width: `${r.value}%`, background: color }} />
-          </span>
-          <span className="w-14 shrink-0 tabular-nums" style={{ color }}>{r.note ?? `${r.value}%`}</span>
-        </div>
-      ))}
     </div>
   );
 }
@@ -234,8 +222,8 @@ export default function HomePage() {
               {[
                 ["about", "who I am"],
                 ["projects", "things I've built"],
-                ["analyst", "data analysis work + charts"],
-                ["skills", "skill levels (animated)"],
+                ["analyst", "analytics projects + what they found"],
+                ["skills", "tools I work with"],
                 ["github", "live github + visitor stats"],
                 ["contact", "how to reach me"],
                 ["resume", "download my resume"],
@@ -279,9 +267,22 @@ export default function HomePage() {
         case "projects":
         case "ls":
           push(
-            <div className="space-y-1 line-in">
-              <div style={{ color: t.dim }}>{projects.length} projects on disk:</div>
-              {projects.map((p, i) => (
+            <div className="space-y-2 line-in">
+              <div style={{ color: t.dim }}>
+                analytics/ ({analyticsProjects.length}) — try `analyst` for the findings
+              </div>
+              {analyticsProjects.map((p, i) => (
+                <div key={p.title} className="flex flex-wrap gap-2">
+                  <span style={{ color: t.dim }}>{String(i + 1).padStart(2, "0")}</span>
+                  <span style={{ color: t.accent }}>{p.title}</span>
+                  {p.demo && <Link href={p.demo}>[open]</Link>}
+                  <Link href={p.github}>[code]</Link>
+                </div>
+              ))}
+              <div style={{ color: t.dim }} className="pt-1">
+                software/ ({softwareProjects.length})
+              </div>
+              {softwareProjects.map((p, i) => (
                 <div key={p.title} className="flex flex-wrap gap-2">
                   <span style={{ color: t.dim }}>{String(i + 1).padStart(2, "0")}</span>
                   <span style={{ color: t.accent }}>{p.title}</span>
@@ -294,49 +295,36 @@ export default function HomePage() {
           break;
 
         case "analyst":
-        case "data": {
-          const revenue = [40, 42, 45, 43, 50, 56, 61, 67, 72, 78];
-          const churn = [88, 80, 72, 60, 55, 44, 38, 30, 26, 22];
+        case "data":
           push(
             <div className="space-y-3 max-w-2xl line-in">
-              <div style={{ color: t.dim }}>// analyst workspace</div>
-              <div className="text-xs sm:text-sm space-y-1">
-                <div className="flex gap-3">
-                  <span className="w-20" style={{ color: t.dim }}>REVENUE</span>
-                  <span className="crt-glow" style={{ color: t.color }}>{sparkline(revenue)}</span>
-                  <span style={{ color: t.accent }}>▲ 12.4%</span>
-                </div>
-                <div className="flex gap-3">
-                  <span className="w-20" style={{ color: t.dim }}>CHURN</span>
-                  <span className="crt-glow" style={{ color: t.color }}>{sparkline(churn)}</span>
-                  <span style={{ color: t.accent }}>▼ 3.1%</span>
-                </div>
+              <div style={{ color: t.dim }}>
+                // {analyticsProjects.length} end-to-end analyses — each leads with what it found
               </div>
-              <BarChart color={t.color} dim={t.dim} rows={[
-                { label: "data accuracy", value: 99, note: "99.2%" },
-                { label: "reports automated", value: 84 },
-                { label: "budget tracked", value: 100, note: "100%" },
-              ]} />
-              <div className="flex flex-wrap gap-2">
-                <span style={{ color: t.accent }}>Bank Churn Analysis</span>
-                <Link href="https://bank-churn-ashy.vercel.app/#overview">[launch]</Link>
-              </div>
+              {analyticsProjects.map((p) => (
+                <div key={p.title} className="space-y-0.5">
+                  <div className="text-xs" style={{ color: t.dim }}>{p.scale}</div>
+                  <div style={{ color: t.accent }}>{p.title}</div>
+                  <div className="crt-glow" style={{ color: t.color }}>→ {p.headline}</div>
+                  <div className="flex flex-wrap gap-2">
+                    {p.demo && <Link href={p.demo}>[launch]</Link>}
+                    <Link href={p.github}>[code]</Link>
+                  </div>
+                </div>
+              ))}
             </div>
           );
           break;
-        }
 
         case "skills":
           push(
-            <div className="line-in">
-              <BarChart color={t.color} dim={t.dim} rows={[
-                { label: "data analysis", value: 95 },
-                { label: "python / pandas", value: 90 },
-                { label: "sql", value: 88 },
-                { label: "excel / sheets", value: 96 },
-                { label: "typescript / react", value: 85 },
-                { label: "problem solving", value: 98 },
-              ]} />
+            <div className="space-y-1 max-w-2xl line-in text-xs sm:text-sm">
+              {SKILL_GROUPS.map(([label, items]) => (
+                <div key={label} className="flex flex-wrap gap-x-3">
+                  <span className="w-32 shrink-0" style={{ color: t.dim }}>{label}</span>
+                  <span className="flex-1" style={{ color: t.color }}>{items}</span>
+                </div>
+              ))}
             </div>
           );
           break;
@@ -358,9 +346,15 @@ export default function HomePage() {
 
         case "resume":
           push(
-            <div className="line-in">
-              <span style={{ color: t.color }}>downloading resume... </span>
-              <Link href="/David_Zeff_Resume2.docx">[David_Zeff_Resume2.docx]</Link>
+            <div className="space-y-0.5 line-in">
+              <div style={{ color: t.color }}>resume — data analyst, one page:</div>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/resume/David-Zeff-Data-Analyst-EN.pdf">[english.pdf]</Link>
+                <Link href="/resume/David-Zeff-Data-Analyst-HE.pdf">[hebrew.pdf]</Link>
+              </div>
+              <div style={{ color: t.dim }} className="text-xs">
+                a BI-analyst variant is also available — just ask
+              </div>
             </div>
           );
           break;

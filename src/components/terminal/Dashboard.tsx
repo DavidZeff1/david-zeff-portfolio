@@ -34,7 +34,7 @@ function LineChart({ color, dim }: { color: string; dim: string }) {
   return (
     <div>
       <div className="flex items-center justify-between text-[11px] mb-1" style={{ color: dim }}>
-        <span>REVENUE INDEX</span>
+        <span>SIGNAL</span>
         <span style={{ color }}>
           {last.toFixed(1)} {delta >= 0 ? "▲" : "▼"} {Math.abs(delta).toFixed(1)}
         </span>
@@ -135,11 +135,13 @@ export default function Dashboard({ color, dim, accent }: Props) {
           ))}
         </div>
       </div>
-      {/* gauges */}
+      {/* Gauges are decorative — random walks, not measurements. Labelled as
+          machine telemetry so they read as terminal chrome; "ACCURACY 92%" on
+          a data analyst's homepage reads as a claim nobody can check. */}
       <div className="flex items-start justify-around gap-2">
-        <Gauge label="MODELS" base={78} color={color} dim={dim} />
-        <Gauge label="ACCURACY" base={92} color={color} dim={dim} />
-        <Gauge label="LOAD" base={31} color={color} dim={dim} />
+        <Gauge label="CPU" base={78} color={color} dim={dim} />
+        <Gauge label="MEM" base={92} color={color} dim={dim} />
+        <Gauge label="I/O" base={31} color={color} dim={dim} />
       </div>
     </div>
   );

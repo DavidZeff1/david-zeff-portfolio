@@ -15,8 +15,9 @@ const pixel = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "David's Portfolio",
-  description: "Showcasing my projects and resume",
+  title: "David Zeff — Data Analyst",
+  description:
+    "Data analyst and Computer Science graduate. End-to-end analytics projects in Python, SQL and Tableau — churn, margin bridging, campaign measurement.",
   icons: {
     icon: "/icon.png",
   },

@@ -38,16 +38,20 @@ export default function Header() {
 
   const dataProjectLinks = [
     {
-      href: "https://davidzeff1-chicago-dashboard-wxkmlm.streamlit.app/",
-      label: "Chicago Crime & Education Analysis",
+      href: "https://maven-roasters-analysis.vercel.app",
+      label: "Coffee Shop Sales Analysis",
     },
     {
-      href: "https://airbnb-price-comparison-by-city.streamlit.app/",
-      label: "Airbnb Pricing Analysis",
+      href: "https://mexico-toy-sales.vercel.app",
+      label: "Maven Toys México — Margin Bridge",
     },
     {
-      href: "https://keyword-trends-1.streamlit.app/",
-      label: "Google Searches Analysis",
+      href: "https://airline-loyalty-analytics.vercel.app",
+      label: "Airline Loyalty Campaign Analytics",
+    },
+    {
+      href: "https://github.com/DavidZeff1/bank-churn",
+      label: "Bank Customer Churn Analysis",
     },
   ];
 
