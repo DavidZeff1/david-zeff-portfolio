@@ -584,13 +584,14 @@ code {
   .hero-layout {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: clamp(3rem, 8vw, 8rem);
   }
 }
 
 .hero-image {
-  width: 120px;
-  height: 160px;
+  width: 160px;
+  height: 200px;
   border-radius: 12px;
   object-fit: cover;
   display: block;
@@ -600,8 +601,8 @@ code {
 
 @media (min-width: 48rem) {
   .hero-image {
-    width: 240px;
-    height: 320px;
+    width: 320px;
+    height: 420px;
   }
 }
 
