@@ -96,16 +96,14 @@
       <h2 class="section-label">Context</h2>
       <div class="prose" data-reveal>
         <p>
-          A 50-store toy retailer trading across 29 Mexican cities grew revenue 30.9% year on
-          year. Gross profit grew 16.0%.
+          A 50-store toy retailer across 29 Mexican cities grew revenue 30.9% year on year. Gross
+          profit only grew 16.0%.
         </p>
         <p>
-          When those two numbers separate, somebody has to explain the gap before the next buying
-          cycle — because the explanation decides which department acts. If margins fell because
-          products are being sold at worse margins, that is a pricing problem. If they fell
-          because the shop is selling proportionally more of the cheap stuff, that is an
-          assortment problem. Different owners, different budgets, and the intuitive answer is
-          usually the wrong one.
+          That gap needs explaining before the next buying cycle, because the answer decides who
+          acts on it. If products are selling at worse margins, it’s a pricing
+          problem. If the shops are just selling more of the cheap stuff, it’s an assortment
+          problem. Different teams, different budgets.
         </p>
       </div>
     </div>
@@ -117,24 +115,15 @@
       <h2 class="section-label">The data</h2>
       <div class="prose" data-reveal>
         <p>
-          <span class="todo">[[REPLACE: dataset name and link]]</span> — 829,262 transaction
-          lines from 50 stores across 29 cities, joined to a product table carrying cost and
-          retail price, and to a store table carrying location and opening date.
+          A public dataset of 829,262 transaction lines from 50 stores across 29 cities, joined
+          to a product table with cost and retail price, and a store table with location and
+          opening date.
         </p>
         <p>
-          <span class="todo">[[REPLACE: what was wrong with it. Strong candidates from a dataset
-          of this shape: stores that opened mid-period and therefore distort a like-for-like
-          year-on-year comparison; SKUs missing a cost and so silently excluded from margin;
-          returns or zero-quantity lines; the number of rows you dropped and on what rule. Say
-          how many rows each issue touched — “0.3% of lines” is a very different statement from
-          “12% of lines”.]]</span>
-        </p>
-        <p>
-          <span class="todo">[[REPLACE: describe the cost join, because it bounds what the bridge
-          can claim. Is cost carried on the transaction line, or on the product record? If it
-          sits on the product record, gross profit is being computed at current cost rather than
-          cost at time of sale — meaning a mid-period cost change is applied retroactively across
-          the whole history. That is worth one honest sentence either way.]]</span>
+          Cost comes from the product record, not the transaction line. So gross profit is
+          calculated at current cost rather than cost at the time of sale, which means any
+          mid-period cost change gets applied backwards across the whole history. Worth stating
+          up front, because it bounds what the rest of the analysis can claim.
         </p>
       </div>
     </div>
@@ -148,9 +137,9 @@
         <div class="prose">
           <p>
             Revenue up 30.9%, gross profit up 16.0%, gross margin down 3.35 percentage points. A
-            margin movement has exactly two possible sources: you sold a different mix of things
+            margin move has two possible sources: you sold a different mix of things
             (<em>mix</em>), or you sold the same things at different margins (<em>rate</em>). The
-            first job is to attribute the decline between the two rather than to argue about it.
+            job is to split the decline between the two instead of arguing about it.
           </p>
         </div>
 
@@ -161,18 +150,17 @@
                  alt="Line chart of monthly gross margin from January 2022 to September 2023. It falls from 30.8% in January 2022, spikes to 32.5% in July 2022, then erodes steadily to a 25.3% low in July 2023 before recovering to 27.4% by September 2023.">
           </div>
           <figcaption>
-            Monthly gross margin, plotted on its own axis rather than stacked against revenue on
-            a second one — a dual axis lets the reader draw whatever relationship they already
-            believe in.
+            Monthly gross margin, on its own axis rather than stacked against revenue on a second
+            one.
           </figcaption>
         </figure>
 
         <div class="prose">
           <p>
-            I ran an exact mix-vs-rate bridge across the category level. The bridge attributed
-            <strong>100% of the −3.35pp decline to mix, with a rate effect of exactly
-            zero</strong>: category margins did not move at all. What changed was the weight of
-            each category in the basket.
+            I ran an exact mix-vs-rate bridge at category level. It put
+            <strong>100% of the −3.35pp decline on mix, with a rate effect of exactly
+            zero</strong>. Category margins didn’t move at all. What changed was how much of each
+            category was in the basket.
           </p>
         </div>
 
@@ -190,20 +178,15 @@
 
         <div class="prose">
           <p>
-            Art &amp; Crafts grew $1.29M year on year while Electronics fell $311K — a swing of
+            Art &amp; Crafts grew $1.29M year on year while Electronics fell $311K: a swing of
             more than $1.6M between two categories that earn very different margins.
-            <span class="todo">[[REPLACE: state the gross margin rate of Art &amp; Crafts against
-            Electronics. Those two numbers are the mechanism of the whole finding and a reader
-            will want them here rather than having to infer them.]]</span>
           </p>
           <p>
-            <strong>Why an exact bridge rather than reading the category chart.</strong> The
-            category chart shows that the mix shifted. It does not show how much of the margin
-            decline that shift accounts for — and “mostly mix” and “100% mix, 0% rate” lead to
-            two different conversations with a buying team. A decomposition that sums exactly to
-            the observed change is falsifiable: if the two effects had not summed to −3.35pp, the
-            method would have told me so. A directional read cannot be wrong, which is precisely
-            what is wrong with it.
+            <strong>Why an exact bridge and not just reading the chart.</strong> The category
+            chart shows the mix shifted. It doesn’t show how much of the margin decline that
+            accounts for, and “mostly mix” and “100% mix, 0% rate” are two different
+            conversations with a buying team. The bridge also has to sum to the observed
+            −3.35pp, so if I’d got it wrong the arithmetic would have said so.
           </p>
         </div>
       </div>
@@ -223,32 +206,29 @@
 
         <div class="prose">
           <p>
-            The chain was buying its growth with margin, and the bridge says precisely how much
-            it paid. That points the fix at assortment and promotional planning rather than at
-            pricing — and pricing is exactly where “our margins are falling” would have sent a
-            team working from intuition. A price response would have been aimed at a rate effect
-            that measurably does not exist.
+            The chain bought its growth with margin, and the bridge says how much it paid. The
+            fix belongs with assortment and promotional planning, not pricing — and pricing is
+            where “our margins are falling” usually sends a team working on instinct. A price
+            response would have been aimed at a rate effect that isn’t there.
           </p>
           <p>
-            The monthly series tells the same story over time: a steady erosion from 30.8% in
-            January 2022 to a 25.3% low in July 2023, then a recovery to 27.4% by September 2023.
-            <span class="todo">[[REPLACE: was that recovery a deliberate intervention, or mix
-            drifting back on its own? If you know, say which. If you don’t, say that — an
-            unexplained recovery is a finding too, and naming it as open is better than
-            implying you closed it.]]</span>
+            The monthly series shows the same thing over time: steady erosion from 30.8% in
+            January 2022 to a low of 25.3% in July 2023, then a recovery to 27.4% by September.
+            I can’t tell from this data whether that recovery was deliberate or the mix drifting
+            back on its own, and it’s the first thing I’d want to ask about.
           </p>
           <p>
-            <span class="todo">[[REPLACE: the decision this enabled or the recommendation you
-            made. Be concrete about who acts and on what: a buying team changing category
-            targets, a promotional calendar, a store-level assortment rule.]]</span>
+            On this evidence I’d take it to the buying team as a category-weighting question:
+            put a margin-mix target next to the revenue target, so growth in a low-margin
+            category is planned for rather than discovered at the end of the year.
           </p>
         </div>
 
         <p class="case-caveat">
-          <strong>What this cannot show.</strong> A mix-vs-rate bridge is an accounting identity,
-          not a causal claim. It says where the margin went; it does not say why the mix shifted.
-          Whether Art &amp; Crafts grew on demand, on promotion, on an assortment decision or on
-          new store openings is a separate question, and this decomposition cannot answer it.
+          <strong>What this can’t show.</strong> A mix-vs-rate bridge is an accounting identity,
+          not a causal claim. It says where the margin went, not why the mix shifted. Whether Art
+          &amp; Crafts grew on demand, on promotion, on an assortment decision or on new store
+          openings is a separate question this can’t answer.
         </p>
       </div>
     </div>

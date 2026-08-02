@@ -74,7 +74,7 @@
 
       <p class="case-eyebrow">Case study · Retention</p>
       <h1 class="case-title">Bank Customer Churn</h1>
-      <p class="case-dek">20.4% churn — and €186M of deposits sitting behind it.</p>
+      <p class="case-dek">20.4% churn, and €186M of deposits behind it.</p>
 
       <dl class="case-facts">
         <div class="case-fact">
@@ -96,16 +96,14 @@
       <h2 class="section-label">Context</h2>
       <div class="prose" data-reveal>
         <p>
-          A retail bank holding a €765M deposit book across France, Germany and Spain needs to
-          know how much of that book is at risk of walking out of the door, and which customers a
-          retention budget should reach first.
+          A retail bank with a €765M deposit book across France, Germany and Spain wants to know
+          how much of it is at risk, and where a retention budget should go first.
         </p>
         <p>
-          Churn is normally reported as a customer count, which is the wrong unit for this
-          decision. A bank does not lose customers, it loses deposits — and the customers most
-          likely to leave are not evenly distributed across balance sizes. So the question is not
-          “what is our churn rate”, it is “how much money is behind it, and where is that money
-          concentrated”.
+          Churn normally gets reported as a percentage of customers. That’s the wrong unit here.
+          A bank loses deposits, not headcount, and the customers most likely to leave don’t hold
+          average balances. The useful question is how much money sits behind the churn rate, and
+          where it’s concentrated.
         </p>
       </div>
     </div>
@@ -117,23 +115,14 @@
       <h2 class="section-label">The data</h2>
       <div class="prose" data-reveal>
         <p>
-          <span class="todo">[[REPLACE: dataset name and link]]</span> — 10,000 retail-banking
-          customers across three markets. One row per customer, carrying balance, tenure, product
-          count, an activity flag, and a churn indicator.
+          A public dataset of 10,000 retail-banking customers across three markets. One row per
+          customer: balance, tenure, number of products held, an activity flag, and whether they
+          left.
         </p>
         <p>
-          <span class="todo">[[REPLACE: what was actually wrong with the extract. Concrete
-          candidates: zero balances that are genuinely zero versus missing; how “active member”
-          is defined and whether it is trustworthy; duplicates; any column you decided not to
-          use and why. If the extract was clean, say that plainly — “the extract needed no
-          cleaning, which is worth stating because most do not” is a perfectly good
-          sentence.]]</span>
-        </p>
-        <p>
-          One property of the data shapes everything downstream: at 20.4% churn the majority
-          class is 79.6%, so any rule or model has to beat a do-nothing baseline of 79.6%
-          accuracy before it is worth anything at all. That is the number to quote whenever
-          somebody reports an 80%-accurate churn model.
+          At 20.4% churn the majority class is 79.6%, so any rule or model has to beat a
+          do-nothing baseline of 79.6% accuracy before it’s worth anything. Worth remembering the
+          next time someone presents an 80%-accurate churn model.
         </p>
       </div>
     </div>
@@ -146,11 +135,10 @@
       <div data-reveal>
         <div class="prose">
           <p>
-            I built the analysis in the unit the business actually manages — euros of deposit —
-            rather than in customer counts, then cut it by the dimensions a retention team can
-            act on: geography, product holding, balance band and activity.
+            I ran the analysis in euros of deposit rather than customer counts, then cut it by
+            the things a retention team can actually act on: market, products held, balance band
+            and activity. Two of those cuts did the work.
           </p>
-          <p>Two cuts carried the result.</p>
         </div>
 
         <figure class="case-figure">
@@ -160,36 +148,27 @@
                  alt="Two bar charts. Left: churn by geography — Germany 32.4%, France 16.2%, Spain 16.7%, against a 20% average line. Right: churn by number of products held — 28% at one product, 8% at two, 83% at three and 100% at four.">
           </div>
           <figcaption>
-            Churn by market and by product holding. The product relationship is not monotonic,
-            which is the interesting part.
+            Churn by market, and by number of products held.
           </figcaption>
         </figure>
 
         <div class="prose">
           <p>
-            Germany churns at 32.4% against 16.2% in France and 16.7% in Spain — roughly double
-            the rest on a comparable customer base. That is not a customer-behaviour finding, it
-            is an operational or competitive one, and it points at a specific market rather than
-            at a generic retention campaign.
+            Germany churns at 32.4%, against 16.2% in France and 16.7% in Spain. Roughly double
+            the rest, on a similar customer base. That reads as something specific to that
+            market, operational or competitive, rather than as a general retention problem.
           </p>
           <p>
-            Product holding runs the other way, and much harder. Churn is 28% at one product,
-            falls to 8% at two, then climbs to 83% at three and 100% at four. If the relationship
-            were monotonic the reading would be the familiar “more products, more sticky”. It is
-            not monotonic, so two products is the healthy state and anything above it is a signal
-            of something else.
-            <span class="todo">[[REPLACE: your read on why three- and four-product holders churn
-            almost universally — bundled or pushed sales, a distressed-customer pattern, or a
-            small-sample effect. Quote the group sizes (n) for the three- and four-product
-            segments so a reader can judge how much weight the 83% and 100% carry.]]</span>
+            Products held run the other way, and harder. Churn is 28% at one product, drops to 8%
+            at two, then jumps to 83% at three and 100% at four. If the line went one way you’d
+            get the familiar “more products, more sticky”. It doesn’t, so two products looks like
+            the healthy state and anything above it is a signal of something else going on.
           </p>
           <p>
-            <strong>Why segmentation rather than a churn model.</strong> A logistic regression
-            would return a churn probability per customer, and it would have been quick to fit.
-            But the decision on the table is where to point a retention budget, not which
-            individual to telephone first. A model would have added a layer needing its own
-            explanation without changing the answer that segmentation already gives — and it
-            would have had to clear that 79.6% baseline to earn its place.
+            <strong>Why segmentation and not a churn model.</strong> A logistic regression would
+            give a probability per customer and wouldn’t have taken long to fit. But the decision
+            here is where to point a budget, not who to call first, and the model would still
+            have had to clear that 79.6% baseline to earn its place.
           </p>
         </div>
       </div>
@@ -208,8 +187,8 @@
                  alt="Eight KPI tiles: churn rate 20.4% against a target of 15% or less; retention 79.6%; deposits under management €765M; deposits at risk €186M, 24% of all deposits; revenue at risk approximately €4.6M per year; active members 52%; average balance per customer €76K; high-balance churn 25.2% across 4,799 customers holding over €100K.">
           </div>
           <figcaption>
-            The KPI header of the dashboard. Every tile carries its target or its denominator,
-            so a number is never shown without the thing it should be compared against.
+            The dashboard’s KPI header. Every tile carries its target or its denominator, so no
+            number appears without something to compare it against.
           </figcaption>
         </figure>
 
@@ -222,25 +201,24 @@
 
         <div class="prose">
           <p>
-            The concentration is what makes it actionable. Customers holding more than €100,000
-            — 4,799 of them — churn at 25.2%, against the 20.4% average. The deposit book is
-            therefore leaking faster than the customer count implies, and a retention effort
-            aimed at Germany and at three-and-four-product holders reaches a disproportionate
-            share of the money rather than a disproportionate share of the people.
+            The concentration is what makes it actionable. The 4,799 customers holding more than
+            €100,000 churn at 25.2%, above the 20.4% average, so the deposit book leaks faster
+            than the customer count suggests. A retention effort aimed at Germany and at three-
+            and four-product holders reaches more of the money than of the people.
           </p>
           <p>
-            <span class="todo">[[REPLACE: the decision this enabled, or the recommendation you
-            made on the strength of it. One or two sentences — this is the line a hiring manager
-            remembers, so make it concrete: who would act, on what, and what would change.]]</span>
+            On this evidence I’d start there rather than with a broad campaign: Germany first,
+            then a review of what’s happening to customers who end up holding three or more
+            products, since that group churns almost completely.
           </p>
         </div>
 
         <p class="case-caveat">
-          <strong>What this cannot show.</strong> The €4.6M revenue-at-risk figure applies an
-          illustrative ~2.5% net interest margin — it indicates scale, it is not the bank’s
-          actual margin. And this is a cross-sectional snapshot: it records which customers have
-          churned, not when or in what order, so it cannot support a time-to-churn or survival
-          claim without a dated event history.
+          <strong>What this can’t show.</strong> The €4.6M revenue figure applies an illustrative
+          2.5% net interest margin. It gives a sense of scale; it isn’t the bank’s real margin.
+          The three- and four-product groups are also much smaller than the rest, so 83% and 100%
+          are directional. And this is a snapshot: it records who churned, not when, so it can’t
+          support any time-to-churn or survival claim.
         </p>
       </div>
     </div>

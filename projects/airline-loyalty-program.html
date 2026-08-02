@@ -74,7 +74,7 @@
 
       <p class="case-eyebrow">Case study · Campaign measurement</p>
       <h1 class="case-title">Airline Loyalty Program</h1>
-      <p class="case-dek">A +54% headline was really +40.7% once the trend was accounted for.</p>
+      <p class="case-dek">A +54% headline was +40.7% once you subtract the existing trend.</p>
 
       <dl class="case-facts">
         <div class="case-fact">
@@ -97,14 +97,14 @@
       <div class="prose" data-reveal>
         <p>
           An airline ran an acquisition campaign for its loyalty programme in February–April
-          2018. Enrolments for the year came in 54% above 2017, and that is the number that
-          would ordinarily go into the review deck.
+          2018. Enrolments for the year came in 54% above 2017, and that’s the number that would
+          normally go in the review deck.
         </p>
         <p>
           But “enrolments were up 54%” and “the campaign produced 54% more members” are different
-          claims, and only the second one justifies running it again. Attributing the whole
+          claims, and only the second one justifies running it again. Crediting the whole
           year-on-year difference to the campaign assumes enrolments would otherwise have been
-          flat — and the programme was already growing, so they would not have been.
+          flat. The programme was already growing, so they wouldn’t have been.
         </p>
       </div>
     </div>
@@ -117,13 +117,13 @@
       <div data-reveal>
         <div class="prose">
           <p>
-            <span class="todo">[[REPLACE: dataset name and link]]</span> — 16,737 loyalty members
-            expanded into 389,065 member-months, carrying enrolment date, cancellation date,
-            monthly flight activity and customer lifetime value.
+            A public dataset of 16,737 loyalty members, expanded into 389,065 member-months, with
+            enrolment date, cancellation date, monthly flight activity and customer lifetime
+            value.
           </p>
           <p>
-            One artefact dominates the cancellation data, and it had to be understood before
-            anything downstream could be trusted.
+            One thing in the cancellation data needed explaining before I could trust anything
+            else.
           </p>
         </div>
 
@@ -134,24 +134,23 @@
                  alt="Histogram of tenure at cancellation across all 2,067 cancellations. A single red bar at month 8 reaches about 1,050 cancellations while every other month sits below 60, making the month-8 spike 29 times the neighbouring months.">
           </div>
           <figcaption>
-            Half of all churn lands on one date. A spike this precise is not customer behaviour.
+            Half of all cancellations land on the same month of membership.
           </figcaption>
         </figure>
 
         <div class="prose">
           <p>
-            1,048 of 2,067 cancellations — 51% — fall on exactly month 8 of membership, 29× the
-            neighbouring months. A spike that sharp is not a behavioural pattern, it is a
-            contract term expiring: the programme carries an eight-month introductory period and
-            a large share of members leave the moment it lapses.
+            1,048 of 2,067 cancellations, 51%, fall on exactly month 8 of membership — 29× the
+            neighbouring months. A spike that sharp isn’t behaviour, it’s a contract term
+            expiring. The programme has an eight-month introductory period and a lot of members
+            leave the moment it ends.
           </p>
           <p>
-            That changes what the churn series means. A survival curve fitted to this data would
-            be describing a contractual cliff rather than a decay process, and any “average
-            tenure” statistic would be an artefact of the contract length. It is also, as it
-            happens, the highest-leverage retention target in the business — because unlike
-            ordinary churn, the date is known in advance for every single member. In 2018 alone
-            that one moment cost $2.67M of CLV across 325 members.
+            That changes what the churn numbers mean. A survival curve fitted to this would be
+            describing a contract cliff rather than a decay, and any “average tenure” figure is
+            really just the length of the intro period. It’s also the best retention target in
+            the business, because unlike normal churn the date is known in advance for every
+            member. In 2018 that one moment cost $2.67M of CLV across 325 members.
           </p>
         </div>
       </div>
@@ -165,22 +164,21 @@
       <div data-reveal>
         <div class="prose">
           <p>
-            Rather than the raw year-on-year comparison, I measured 2018 against a
+            Instead of the raw year-on-year comparison, I measured 2018 against a
             <strong>trend-adjusted counterfactual</strong>: what the programme would have
-            enrolled on its pre-campaign trajectory, subtracted from what it actually enrolled.
-            That gives <strong>+281 incremental members, or +40.7%</strong> — a real result, and
-            materially smaller than the +54% headline.
+            enrolled on its existing trajectory, subtracted from what it actually enrolled. That
+            gives <strong>+281 incremental members, or +40.7%</strong>. Still a real result, and
+            noticeably smaller than +54%.
           </p>
           <p>
-            Against a $332 customer acquisition cost and a mean CLV of $8,047, the campaign pays
-            back comfortably even on the conservative figure. That is the point of using the
-            conservative figure: a result that survives the honest comparison does not need the
-            flattering one, and quoting +54% to a finance director who can subtract a trend line
-            costs more credibility than the extra 13 points are worth.
+            Against a $332 acquisition cost and a mean CLV of $8,047, the campaign pays back
+            comfortably even on the smaller number. Which is the point of using it — quoting +54%
+            to a finance director who can subtract a trend line costs more than the extra 13
+            points are worth.
           </p>
           <p>
             The second question is whether the campaign did anything for members who were
-            <em>already</em> enrolled — who by definition cannot appear in an enrolment count.
+            <em>already</em> enrolled, since they can’t show up in an enrolment count.
           </p>
         </div>
 
@@ -200,20 +198,18 @@
           <p>
             Year-on-year flight activity for that group ran −0.3% across January–April and +10.7%
             across May–December: a <strong>+11.0 percentage-point difference-in-differences</strong>.
-            Their monthly active rate rose from 43.0% to 48.2% over the same period.
+            Their monthly active rate went from 43.0% to 48.2% over the same period.
           </p>
           <p>
-            The shape matters as much as the size. It is a step at May, not a gradual climb —
-            which is what a discrete intervention looks like, and not what a slowly improving
-            market looks like.
+            The shape matters as much as the size. It’s a step at May, not a gradual climb, which
+            is what a one-off intervention looks like rather than a slowly improving market.
           </p>
           <p>
-            <strong>Why difference-in-differences rather than a before/after.</strong> Air travel
-            is strongly seasonal. A straight comparison of May–December against January–April
-            inside 2018 would have measured summer, not the campaign. Differencing against the
-            same months of the prior year removes anything that repeats annually, so what is left
-            is the change specific to 2018 — which is the only part the campaign could have
-            caused.
+            <strong>Why difference-in-differences and not a before/after.</strong> Air travel is
+            heavily seasonal. Comparing May–December against January–April within 2018 would have
+            measured summer, not the campaign. Differencing against the same months a year
+            earlier strips out anything that repeats annually, leaving the part that’s specific
+            to 2018.
           </p>
         </div>
       </div>
@@ -235,27 +231,23 @@
         <div class="prose">
           <p>
             The campaign worked, and it worked about three-quarters as well as the raw comparison
-            implied. Both halves of that sentence are the deliverable: the correction is as
-            useful as the number, because it sets the benchmark the next campaign will be judged
-            against — and a benchmark inflated by trend is one that no future campaign can beat
-            honestly.
+            suggested. The correction matters as much as the number: +40.7% is the benchmark the
+            next campaign gets judged against, and an inflated benchmark just sets the next team
+            up to fail.
           </p>
           <p>
-            The month-8 cliff found in the cancellation data is the separate, larger prize. It is
-            a known-in-advance date on every member record, and in 2018 it cost $2.67M of CLV
-            across 325 members.
-            <span class="todo">[[REPLACE: what you recommended against the month-8 cliff — a
-            retention contact ahead of the lapse date, a renewal offer, a change to the
-            introductory term itself. One or two concrete sentences.]]</span>
+            The month-8 cliff is the bigger prize, and it’s a separate one. The lapse date is
+            already sitting on every member record, so I’d put a retention contact and a renewal
+            offer in front of it a month out — the rare case where you know exactly who to talk
+            to and exactly when.
           </p>
         </div>
 
         <p class="case-caveat">
-          <strong>Read with care.</strong> One airline, and no untreated control market.
-          Seasonality is controlled by comparing like months a year apart, but a mid-2018 shift in
-          travel demand affecting everyone cannot be ruled out — it would show up in this data as
-          a campaign effect and nothing here could distinguish the two. This is strongly
-          suggestive, not causal proof, and it should be quoted that way.
+          <strong>Read with care.</strong> One airline, no untreated control market. Comparing
+          like months a year apart controls for seasonality, but a general shift in travel demand
+          in mid-2018 would look identical to a campaign effect here, and nothing in this data
+          separates the two. Suggestive, not proof, and worth quoting that way.
         </p>
       </div>
     </div>

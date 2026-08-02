@@ -97,15 +97,13 @@
       <div class="prose" data-reveal>
         <p>
           Three coffee shops in New York more than doubled revenue over six months. Before anyone
-          credits a price change, a new menu or a marketing push, it is worth establishing which
-          lever actually moved.
+          credits the new menu or the marketing, it’s worth checking which lever actually moved.
         </p>
         <p>
-          Revenue is Orders × Average Order Value, and those two are driven by entirely different
-          things. More people through the door is a location, hours and awareness problem. A
-          bigger basket is a menu, pricing and upsell problem. Knowing which one produced the
-          growth decides where the next effort goes — and the answer is not visible in a revenue
-          chart.
+          Revenue is Orders × Average Order Value, and those two come from completely different
+          places. More people through the door is a location, hours and awareness problem. A
+          bigger basket is a menu, pricing and upsell problem. Which one grew decides where the
+          next effort goes, and you can’t see it in a revenue chart.
         </p>
       </div>
     </div>
@@ -117,28 +115,21 @@
       <h2 class="section-label">The data</h2>
       <div class="prose" data-reveal>
         <p>
-          <span class="todo">[[REPLACE: dataset name and link]]</span> — 149,116 transaction
-          lines across three stores over six months, carrying timestamp, store, product, unit
-          price and quantity.
+          A public dataset of 149,116 transaction lines across three stores over six months, with
+          timestamp, store, product, unit price and quantity.
         </p>
         <p>
           <strong>The grain was wrong, and it mattered.</strong> <code>transaction_id</code>
-          looks like an order identifier and was being used as one. It is not: it identifies a
+          looks like an order ID and was being used as one. It isn’t — it identifies a
           <em>line item</em>. A customer buying a latte and a croissant produces two
-          “transactions”. Average order value was therefore being reported as $4.69 when the true
-          figure — after grouping lines back into orders — is <strong>$5.98</strong>, 27% higher.
+          “transactions”. So average order value was coming out at $4.69 when the real figure,
+          after grouping lines back into orders, is <strong>$5.98</strong>. 27% higher.
         </p>
         <p>
-          That class of error survives indefinitely, because the wrong number looks entirely
-          plausible. Nothing about a $4.69 average is suspicious for a coffee shop. It only
-          surfaces if you check what one row represents before dividing by it, and it corrupts
-          every downstream metric with an order count in the denominator.
-        </p>
-        <p>
-          <span class="todo">[[REPLACE: anything else you had to clean — duplicate lines,
-          zero-value or refund rows, products with a null price, timestamps outside trading
-          hours. Include how many rows were affected, and whether you dropped or kept
-          them.]]</span>
+          That kind of error can sit there for years, because $4.69 is a perfectly believable
+          average for a coffee shop. Nothing about it looks wrong. It only turns up if you check
+          what one row means before you divide by it, and until you do it quietly breaks every
+          metric with an order count underneath.
         </p>
       </div>
     </div>
@@ -151,18 +142,18 @@
       <div data-reveal>
         <div class="prose">
           <p>
-            Decompose revenue into its two components and look at each on its own:
+            Split revenue into its two parts and look at each on its own:
             Revenue = Orders × AOV.
           </p>
           <p>
             Over the six months, <strong>orders grew 104%</strong> while
-            <strong>average order value moved −0.1%</strong>. One lever did all of the work and
-            the other sat completely untouched. That reframes the question from “why is revenue
-            up” to “what is bringing more people through the door, and can we do more of it”.
+            <strong>average order value moved −0.1%</strong>. One lever did all the work and the
+            other never moved. That changes the question from “why is revenue up” to “what’s
+            bringing more people in, and can we do more of it”.
           </p>
           <p>
-            The second correction was the time comparison. A raw month-over-month total makes
-            February look like a decline — purely because it is three days shorter than January.
+            The other correction was the time comparison. A straight month-over-month total makes
+            February look like a decline, purely because it’s three days shorter than January.
           </p>
         </div>
 
@@ -173,19 +164,17 @@
                  alt="Bar chart of revenue per trading day by month from January to June. February, highlighted in green, is slightly above January at about $2,700 per day, and the series then rises steadily to about $5,500 per day in June.">
           </div>
           <figcaption>
-            Revenue per trading day. On a per-day basis February grew 3.2% — month-length
-            normalisation flips the sign of the result.
+            Revenue per trading day. Per day, February grew 3.2% — normalising for month length
+            flips the sign.
           </figcaption>
         </figure>
 
         <div class="prose">
           <p>
-            <strong>Why decomposition before segmentation.</strong> With revenue moving this
-            much, cutting the data by store, product or hour would have shown growth almost
-            everywhere and explained nothing. The identity narrows the question first: once you
-            know basket size is flat, every basket-side cut can be set aside, and the traffic
-            side is worth the detailed look. Segmentation is much more informative after the
-            question has been narrowed than before.
+            <strong>Why split first, then segment.</strong> With revenue moving this much,
+            cutting by store, product or hour would have shown growth almost everywhere and
+            explained nothing. Splitting revenue first narrows it: once you know basket size is
+            flat, you can drop every basket-side cut and spend the time on traffic instead.
           </p>
         </div>
       </div>
@@ -205,11 +194,10 @@
 
         <div class="prose">
           <p>
-            Two things came out of it. The corrected average order value replaced $4.69 as the
-            baseline for every metric that divides by order count. And the growth attribution
-            means effort should go to the levers that affect footfall — while any initiative
-            aimed at raising basket size now starts from the knowledge that six months of trading
-            did not move it at all.
+            Two things came out of it. The corrected AOV replaces $4.69 as the baseline for every
+            metric that divides by order count. And since all the growth came from footfall,
+            that’s where the effort should go — while anything aimed at raising basket size now
+            starts knowing that six months of trading didn’t move it at all.
           </p>
           <p>The traffic itself turns out to be heavily concentrated.</p>
         </div>
@@ -228,18 +216,16 @@
 
         <div class="prose">
           <p>
-            <span class="todo">[[REPLACE: what you recommended on the back of the daypart
-            concentration — staffing against the morning peak, pre-order or throughput at the
-            counter, a targeted off-peak play. One or two concrete sentences; this is the part
-            that shows you can turn a chart into a decision.]]</span>
+            On this evidence I’d point staffing and counter throughput at those three hours
+            first, since that’s where a queue costs the most, and treat the quieter parts of the
+            day as a separate question rather than lumping them into one “grow revenue” target.
           </p>
         </div>
 
         <p class="case-caveat">
-          <strong>What this cannot show.</strong> Six months of trading from a single business,
-          with no control period and no price history: the decomposition describes what happened,
-          not what caused it. “Traffic grew” is an observation about the mechanism of growth, not
-          an explanation of its source.
+          <strong>What this can’t show.</strong> Six months of trading from one business, with no
+          control period and no price history. The split describes what happened, not what caused
+          it — “traffic grew” says how the growth arrived, not where it came from.
         </p>
       </div>
     </div>
