@@ -103,7 +103,7 @@
 
     <nav aria-label="Sections">
       <ul class="nav-list" id="nav-list" data-collapsed="true">
-        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#about">What I do</a></li>
         <li><a class="nav-link" href="#work">Work</a></li>
         <li><a class="nav-link" href="#skills">Skills</a></li>
         <li><a class="nav-link" href="#experience">Experience</a></li>
@@ -128,6 +128,12 @@
             I take business numbers apart to find what’s actually moving them.
           </p>
 
+          <p class="hero-support">
+            Python and SQL for the analysis, Tableau and Plotly for the dashboard, and a deck the
+            room can follow at the end of it. Four analyses below, each taken from raw data to
+            something you can click.
+          </p>
+
           <p class="hero-location">Alon Shvut, Israel · Open to data and BI analyst roles</p>
 
           <div class="btn-row hero-actions">
@@ -147,21 +153,70 @@
     </div>
   </section>
 
-  <!-- ── About ────────────────────────────────────────────────────────── -->
+  <!-- ── Stat band ────────────────────────────────────────────────────── -->
+  <section class="stat-band" aria-label="At a glance">
+    <div class="wrap">
+      <dl class="stat-grid">
+        <div class="stat">
+          <dt class="stat-label">rows analysed across four projects</dt>
+          <dd class="stat-value">1.4M</dd>
+        </div>
+        <div class="stat">
+          <dt class="stat-label">of deposits at risk identified</dt>
+          <dd class="stat-value">€186M</dd>
+        </div>
+        <div class="stat">
+          <dt class="stat-label">reporting error found and corrected</dt>
+          <dd class="stat-value">27%</dd>
+        </div>
+        <div class="stat">
+          <dt class="stat-label">live dashboards built and deployed</dt>
+          <dd class="stat-value">4</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ── What I do ────────────────────────────────────────────────────── -->
   <section class="section" id="about">
     <div class="wrap section-grid">
-      <h2 class="section-label">About</h2>
-      <div class="prose" data-reveal>
-        <p>
-          I’m a Computer Science graduate from Sapir College, currently a Financial Analyst at the
-          Gush Etzion Regional Council, where I review budgets in the tens of millions of shekels
-          and build the reporting departments use to make decisions.
+      <h2 class="section-label">What I do</h2>
+
+      <div data-reveal>
+        <p class="prose" style="margin-block-end: var(--space-xl);">
+          Computer Science graduate from Sapir College, currently a Financial Analyst at the Gush
+          Etzion Regional Council, reviewing budgets in the tens of millions of shekels. Data
+          analysis and data science certificates from Hebrew University and Bar-Ilan, July 2026.
         </p>
-        <p>
-          Alongside that I’ve taken four analytics projects from raw data through to a working
-          dashboard: churn, margin, campaign measurement and retail traffic. I finished data
-          analysis and data science certificates at Hebrew University and Bar-Ilan in July 2026.
-        </p>
+
+        <div class="cap-grid">
+          <article class="cap">
+            <h3 class="cap-title">Analysis</h3>
+            <p class="cap-body">
+              Working out what’s actually driving a number: segmentation, cohort analysis,
+              A/B and hypothesis testing, difference-in-differences.
+            </p>
+            <p class="cap-tools">Python · pandas · NumPy · SQL · PostgreSQL</p>
+          </article>
+
+          <article class="cap">
+            <h3 class="cap-title">Dashboards &amp; BI</h3>
+            <p class="cap-body">
+              Interactive dashboards that still get opened after the project ends — deployed,
+              shareable on a link, built to be read at a glance.
+            </p>
+            <p class="cap-tools">Tableau · Plotly · Streamlit · Matplotlib</p>
+          </article>
+
+          <article class="cap">
+            <h3 class="cap-title">Reporting &amp; presentation</h3>
+            <p class="cap-body">
+              Findings turned into something a room can follow: KPI design, executive
+              summaries, and decks built for the decision rather than the data.
+            </p>
+            <p class="cap-tools">KPI design · Excel · Google Sheets · Interactive HTML decks</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -171,100 +226,121 @@
     <div class="wrap section-grid">
       <h2 class="section-label">Selected work</h2>
 
-      <div data-reveal>
-        <ul class="work-list">
+      <div class="showcase-wide" data-reveal>
+        <ul class="showcase">
 
-          <li>
-            <article class="work-card">
-              <p class="work-number" aria-hidden="true">01</p>
-
-              <div class="work-heading">
-                <h3 class="work-title"><a href="projects/bank-customer-churn.html">Bank Customer Churn</a></h3>
-                <p class="work-subtitle">Retention and deposits at risk</p>
+          <li class="showcase-item">
+            <div class="showcase-media" style="--chart-bg: #ecf0f5;">
+              <img src="assets/projects/bank-churn-by-geography-and-products.png"
+                   width="1300" height="374" loading="lazy" decoding="async"
+                   alt="Two bar charts. Left: churn by geography — Germany 32.4%, France 16.2%, Spain 16.7%, against a 20% average line. Right: churn by number of products held — 28% at one product, 8% at two, 83% at three and 100% at four.">
+            </div>
+            <div class="showcase-body">
+              <p class="showcase-eyebrow">01 · Retention</p>
+              <h3 class="showcase-title"><a href="projects/bank-customer-churn.html">Bank Customer Churn</a></h3>
+              <p class="showcase-finding">
+                Measured churn in euros of deposit instead of customer counts. €186M of a €765M
+                book at risk, concentrated in Germany and in high-balance accounts.
+              </p>
+              <div class="showcase-stats">
+                <div><span class="showcase-stat-value">€186M</span><span class="showcase-stat-label">deposits at risk</span></div>
+                <div><span class="showcase-stat-value">20.4%</span><span class="showcase-stat-label">churn rate</span></div>
+                <div><span class="showcase-stat-value">10,000</span><span class="showcase-stat-label">customers</span></div>
               </div>
-
-              <p class="work-finding">€186M of deposits sitting with customers likely to leave.</p>
-
-              <p class="work-scale">10,000 retail-banking customers · France, Germany, Spain</p>
-              <p class="work-methods">Python · pandas · Plotly · Segmentation · KPI design</p>
-
-              <div class="work-links">
-                <a class="arrow-link" href="projects/bank-customer-churn.html" aria-label="Read the Bank Customer Churn case study">Read the case study</a>
+              <p class="showcase-meta">Python · pandas · Plotly · Segmentation · KPI design</p>
+              <div class="showcase-links">
+                <a class="arrow-link" href="projects/bank-customer-churn.html" aria-label="Read the Bank Customer Churn case study">Case study</a>
                 <a class="ext-link" href="https://bank-churn-ashy.vercel.app/#overview" target="_blank" rel="noopener">Live dashboard</a>
                 <a class="ext-link" href="https://github.com/DavidZeff1/bank-churn" target="_blank" rel="noopener">Code</a>
               </div>
-            </article>
+            </div>
           </li>
 
-          <li>
-            <article class="work-card">
-              <p class="work-number" aria-hidden="true">02</p>
-
-              <div class="work-heading">
-                <h3 class="work-title"><a href="projects/maven-toys-mexico.html">Maven Toys México</a></h3>
-                <p class="work-subtitle">Margin bridge analysis</p>
+          <li class="showcase-item">
+            <div class="showcase-media" style="--chart-bg: #0c0c0c;">
+              <img src="assets/projects/maven-toys-revenue-change-by-category.png"
+                   width="1300" height="945" loading="lazy" decoding="async"
+                   alt="Horizontal bar chart of revenue change by category, January to September 2023 versus the same months of 2022. Art and Crafts grew $1.29M, Toys $286K, Sports and Outdoors $211K, Games $168K, while Electronics fell $311K.">
+            </div>
+            <div class="showcase-body">
+              <p class="showcase-eyebrow">02 · Margin</p>
+              <h3 class="showcase-title"><a href="projects/maven-toys-mexico.html">Maven Toys México</a></h3>
+              <p class="showcase-finding">
+                An exact mix-vs-rate bridge put all 3.35 points of margin decline on product mix,
+                with a rate effect of zero. The fix belonged with assortment planning, not pricing.
+              </p>
+              <div class="showcase-stats">
+                <div><span class="showcase-stat-value">829,262</span><span class="showcase-stat-label">transaction lines</span></div>
+                <div><span class="showcase-stat-value">100%</span><span class="showcase-stat-label">of decline was mix</span></div>
+                <div><span class="showcase-stat-value">50</span><span class="showcase-stat-label">stores, 29 cities</span></div>
               </div>
-
-              <p class="work-finding">The chain bought 30.9% revenue growth with 3.35 points of margin.</p>
-
-              <p class="work-scale">829,262 transaction lines · 50 stores · 29 cities</p>
-              <p class="work-methods">Python · pandas · ABC / Pareto · Mix-vs-rate bridging · Inventory analysis</p>
-
-              <div class="work-links">
-                <a class="arrow-link" href="projects/maven-toys-mexico.html" aria-label="Read the Maven Toys México case study">Read the case study</a>
+              <p class="showcase-meta">Python · pandas · ABC / Pareto · Mix-vs-rate bridging</p>
+              <div class="showcase-links">
+                <a class="arrow-link" href="projects/maven-toys-mexico.html" aria-label="Read the Maven Toys México case study">Case study</a>
                 <a class="ext-link" href="https://mexico-toy-sales.vercel.app" target="_blank" rel="noopener">Live dashboard</a>
                 <a class="ext-link" href="https://github.com/DavidZeff1/mexico-toy-sales" target="_blank" rel="noopener">Code</a>
               </div>
-            </article>
+            </div>
           </li>
 
-          <li>
-            <article class="work-card">
-              <p class="work-number" aria-hidden="true">03</p>
-
-              <div class="work-heading">
-                <h3 class="work-title"><a href="projects/coffee-shop-sales.html">Coffee Shop Sales</a></h3>
-                <p class="work-subtitle">Traffic vs basket decomposition</p>
+          <li class="showcase-item">
+            <div class="showcase-media" style="--chart-bg: #0d0d0d;">
+              <img src="assets/projects/coffee-shop-revenue-by-daypart.png"
+                   width="1300" height="961" loading="lazy" decoding="async"
+                   alt="Bar chart of revenue by daypart. Morning Peak is the tallest at about $255,000, roughly double Midday and Afternoon at about $125,000 each, with Evening near $105,000 and Early Morning lowest at about $85,000.">
+            </div>
+            <div class="showcase-body">
+              <p class="showcase-eyebrow">03 · Growth decomposition</p>
+              <h3 class="showcase-title"><a href="projects/coffee-shop-sales.html">Coffee Shop Sales</a></h3>
+              <p class="showcase-finding">
+                Split revenue into orders × basket size: all the growth was footfall. A grain error
+                in the source data had been understating average order value by 27%.
+              </p>
+              <div class="showcase-stats">
+                <div><span class="showcase-stat-value">+104%</span><span class="showcase-stat-label">order growth</span></div>
+                <div><span class="showcase-stat-value">$5.98</span><span class="showcase-stat-label">true AOV, was $4.69</span></div>
+                <div><span class="showcase-stat-value">149,116</span><span class="showcase-stat-label">transaction lines</span></div>
               </div>
-
-              <p class="work-finding">Revenue doubled on footfall alone. The AOV baseline was 27% too low.</p>
-
-              <p class="work-scale">149,116 transaction lines · 3 NYC stores · 6 months</p>
-              <p class="work-methods">Python · pandas · Plotly · Market-basket analysis · KPI design</p>
-
-              <div class="work-links">
-                <a class="arrow-link" href="projects/coffee-shop-sales.html" aria-label="Read the Coffee Shop Sales case study">Read the case study</a>
+              <p class="showcase-meta">Python · pandas · Plotly · Market-basket analysis</p>
+              <div class="showcase-links">
+                <a class="arrow-link" href="projects/coffee-shop-sales.html" aria-label="Read the Coffee Shop Sales case study">Case study</a>
                 <a class="ext-link" href="https://maven-roasters-analysis.vercel.app" target="_blank" rel="noopener">Live dashboard</a>
                 <a class="ext-link" href="https://github.com/DavidZeff1/coffee-shop-sales-analysis" target="_blank" rel="noopener">Code</a>
               </div>
-            </article>
+            </div>
           </li>
 
-          <li>
-            <article class="work-card">
-              <p class="work-number" aria-hidden="true">04</p>
-
-              <div class="work-heading">
-                <h3 class="work-title"><a href="projects/airline-loyalty-program.html">Airline Loyalty Program</a></h3>
-                <p class="work-subtitle">Campaign measurement</p>
+          <li class="showcase-item">
+            <div class="showcase-media" style="--chart-bg: #0b0b0b;">
+              <img src="assets/projects/airline-loyalty-churn-concentration.png"
+                   width="1300" height="1212" loading="lazy" decoding="async"
+                   alt="Histogram of tenure at cancellation across all 2,067 cancellations. A single red bar at month 8 reaches about 1,050 cancellations while every other month sits below 60, making the month-8 spike 29 times the neighbouring months.">
+            </div>
+            <div class="showcase-body">
+              <p class="showcase-eyebrow">04 · Campaign measurement</p>
+              <h3 class="showcase-title"><a href="projects/airline-loyalty-program.html">Airline Loyalty Program</a></h3>
+              <p class="showcase-finding">
+                Trend-adjusted, a +54% campaign headline was worth +40.7%. And half of all
+                cancellations landed on a single month of membership — a contract cliff costing
+                $2.67M a year.
+              </p>
+              <div class="showcase-stats">
+                <div><span class="showcase-stat-value">+40.7%</span><span class="showcase-stat-label">incremental lift</span></div>
+                <div><span class="showcase-stat-value">51%</span><span class="showcase-stat-label">of churn on month 8</span></div>
+                <div><span class="showcase-stat-value">389,065</span><span class="showcase-stat-label">member-months</span></div>
               </div>
-
-              <p class="work-finding">The campaign added 281 members and 11 points of flight activity.</p>
-
-              <p class="work-scale">16,737 members · 389,065 member-months</p>
-              <p class="work-methods">Python · pandas · Difference-in-differences · CLV / CAC · Cohort analysis</p>
-
-              <div class="work-links">
-                <a class="arrow-link" href="projects/airline-loyalty-program.html" aria-label="Read the Airline Loyalty Program case study">Read the case study</a>
+              <p class="showcase-meta">Python · pandas · Difference-in-differences · CLV / CAC · Cohort analysis</p>
+              <div class="showcase-links">
+                <a class="arrow-link" href="projects/airline-loyalty-program.html" aria-label="Read the Airline Loyalty Program case study">Case study</a>
                 <a class="ext-link" href="https://airline-loyalty-analytics.vercel.app" target="_blank" rel="noopener">Live dashboard</a>
                 <a class="ext-link" href="https://github.com/DavidZeff1/airline-loyalty-analytics" target="_blank" rel="noopener">Code</a>
               </div>
-            </article>
+            </div>
           </li>
 
         </ul>
 
-        <p class="meta meta-faint" style="margin-block-start: var(--space-xl); max-width: var(--width-prose);">
+        <p class="meta meta-faint" style="margin-block-start: var(--space-2xl); max-width: var(--width-prose);">
           All four use public datasets from the Hebrew University Data Analysis programme. No
           client data appears anywhere on this site.
         </p>

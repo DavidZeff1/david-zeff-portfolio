@@ -1231,3 +1231,251 @@ code {
 
   .nav.is-stuck { border-block-end-color: CanvasText; }
 }
+
+
+/* ============================================================================
+   12. Advertisement layer — stat band, capability cards, work showcase
+   Added so the landing page carries proof above the fold: numbers and charts
+   are visible without a click, and the case studies become optional depth.
+   ========================================================================= */
+
+/* ── Stat band ───────────────────────────────────────────────────────────── */
+
+.stat-band {
+  border-block: 1px solid var(--color-rule);
+  background-color: var(--color-surface-alt);
+  padding-block: var(--space-2xl);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl) var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  .stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Source order is dt (label) then dd (value) for correct <dl> semantics and
+   screen-reader output; column-reverse puts the number on top visually. */
+.stat {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.stat-value {
+  display: block;
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semi);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.05;
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  display: block;
+  margin: var(--space-xs) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--color-ink-muted);
+  text-wrap: balance;
+}
+
+/* ── Capability cards ────────────────────────────────────────────────────── */
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (min-width: 48rem) {
+  .cap-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.cap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-md);
+}
+
+.cap-title {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semi);
+  letter-spacing: var(--tracking-snug);
+  margin: 0;
+}
+
+.cap-body {
+  font-size: var(--text-base);
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+  margin: 0;
+}
+
+.cap-tools {
+  margin-block-start: auto;
+  padding-block-start: var(--space-sm);
+  border-block-start: 1px solid var(--color-rule);
+  font-size: var(--text-sm);
+  color: var(--color-ink-faint);
+}
+
+/* ── Work showcase — alternating chart / copy rows ───────────────────────── */
+
+.showcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.showcase-item {
+  position: relative;
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+/* The showcase spans both columns of .section-grid, so the charts get the full
+   page measure instead of the ~800px left over beside the label column. At
+   1088px that is a 660px chart rather than a 350px one — the difference
+   between readable axis labels and decoration. */
+@media (min-width: 60rem) {
+  .showcase-wide { grid-column: 1 / -1; }
+
+  .showcase-item {
+    grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  /* Alternate the chart side. Swapping the track sizes as well as the
+     placement keeps the chart in the wide column on every row — using `order`
+     alone would hand even rows the narrow one. */
+  .showcase-item:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr);
+  }
+  .showcase-item:nth-child(even) .showcase-media { grid-column: 2; grid-row: 1; }
+  .showcase-item:nth-child(even) .showcase-body  { grid-column: 1; grid-row: 1; }
+}
+
+.showcase-media {
+  background-color: var(--chart-bg, var(--color-surface-alt));
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-md);
+  padding: clamp(0.5rem, 1.5vw, 0.875rem);
+  overflow: hidden;
+}
+
+.showcase-media img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--radius-sm);
+}
+
+.showcase-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.showcase-eyebrow {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  margin: 0;
+}
+
+.showcase-title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semi);
+  letter-spacing: var(--tracking-snug);
+  margin: 0;
+}
+
+.showcase-title a { text-decoration: none; color: var(--color-ink); }
+
+/* Stretched hit area, matching .work-card's behaviour. */
+.showcase-title a::after { content: ""; position: absolute; inset: 0; }
+
+.showcase-finding {
+  font-size: var(--text-md);
+  line-height: 1.4;
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-ink);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.showcase-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-block: var(--space-2xs);
+  padding-block: var(--space-sm);
+  border-block: 1px solid var(--color-rule);
+}
+
+.showcase-stat-value {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semi);
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.showcase-stat-label {
+  display: block;
+  margin-block-start: 2px;
+  font-size: var(--text-xs);
+  color: var(--color-ink-faint);
+}
+
+.showcase-meta {
+  font-size: var(--text-sm);
+  color: var(--color-ink-faint);
+  margin: 0;
+}
+
+.showcase-links {
+  position: relative;   /* above the stretched ::after */
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-block-start: var(--space-2xs);
+}
+
+@media (hover: hover) {
+  .showcase-item:hover .arrow-link::after { transform: translateX(0.2em); }
+}
+
+.showcase-item:has(.showcase-title a:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 8px;
+  border-radius: var(--radius-sm);
+}
+.showcase-item .showcase-title a:focus-visible { outline: none; }
+
+/* Hero support line — sits under the statement, wider measure. */
+.hero-support {
+  max-width: 46ch;
+  font-size: var(--text-base);
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+  margin-block-end: var(--space-md);
+}
