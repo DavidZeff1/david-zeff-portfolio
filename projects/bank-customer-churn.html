@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Bank Customer Churn — David Zeff</title>
-<meta name="description" content="Case study: 20.4% churn across 10,000 retail-banking customers, quantified as €186M of deposits at risk rather than as a customer count. Python, pandas, Plotly.">
+<meta name="description" content="Case study: 20.4% churn across 10,000 retail-banking customers, measured in euros of deposit — €186M at risk, concentrated in Germany and in high-balance accounts. Python, pandas, Plotly.">
 <meta name="author" content="David Zeff">
 <link rel="canonical" href="https://www.david-zeff-portfolio.com/projects/bank-customer-churn.html">
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.david-zeff-portfolio.com/projects/bank-customer-churn.html">
 <meta property="og:title" content="Bank Customer Churn — David Zeff">
-<meta property="og:description" content="20.4% churn — and €186M of deposits sitting behind it.">
+<meta property="og:description" content="€186M of deposits sitting with customers likely to leave.">
 <meta property="og:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bank Customer Churn — David Zeff">
-<meta name="twitter:description" content="20.4% churn — and €186M of deposits sitting behind it.">
+<meta name="twitter:description" content="€186M of deposits sitting with customers likely to leave.">
 <meta name="twitter:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
 
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -74,7 +74,7 @@
 
       <p class="case-eyebrow">Case study · Retention</p>
       <h1 class="case-title">Bank Customer Churn</h1>
-      <p class="case-dek">20.4% churn, and €186M of deposits behind it.</p>
+      <p class="case-dek">€186M of deposits sitting with customers likely to leave.</p>
 
       <dl class="case-facts">
         <div class="case-fact">
@@ -96,14 +96,13 @@
       <h2 class="section-label">Context</h2>
       <div class="prose" data-reveal>
         <p>
-          A retail bank with a €765M deposit book across France, Germany and Spain wants to know
-          how much of it is at risk, and where a retention budget should go first.
+          A retail bank with a €765M deposit book across France, Germany and Spain wanted to know
+          how much of it was at risk, and where to spend a retention budget.
         </p>
         <p>
-          Churn normally gets reported as a percentage of customers. That’s the wrong unit here.
-          A bank loses deposits, not headcount, and the customers most likely to leave don’t hold
-          average balances. The useful question is how much money sits behind the churn rate, and
-          where it’s concentrated.
+          Churn is usually reported as a percentage of customers. I measured it in euros of
+          deposit instead, because the customers most likely to leave don’t hold average
+          balances.
         </p>
       </div>
     </div>
@@ -120,9 +119,8 @@
           left.
         </p>
         <p>
-          At 20.4% churn the majority class is 79.6%, so any rule or model has to beat a
-          do-nothing baseline of 79.6% accuracy before it’s worth anything. Worth remembering the
-          next time someone presents an 80%-accurate churn model.
+          Churn runs at 20.4%, so predicting “nobody leaves” scores 79.6% accuracy. That’s the
+          baseline anything here has to beat.
         </p>
       </div>
     </div>
@@ -135,9 +133,8 @@
       <div data-reveal>
         <div class="prose">
           <p>
-            I ran the analysis in euros of deposit rather than customer counts, then cut it by
-            the things a retention team can actually act on: market, products held, balance band
-            and activity. Two of those cuts did the work.
+            I cut the deposit total by market, products held, balance band and activity. Two of
+            those cuts did the work.
           </p>
         </div>
 
@@ -154,21 +151,12 @@
 
         <div class="prose">
           <p>
-            Germany churns at 32.4%, against 16.2% in France and 16.7% in Spain. Roughly double
-            the rest, on a similar customer base. That reads as something specific to that
-            market, operational or competitive, rather than as a general retention problem.
+            Germany churns at 32.4%, against 16.2% in France and 16.7% in Spain — double the rest
+            on a similar customer base, which points at something specific to that market.
           </p>
           <p>
-            Products held run the other way, and harder. Churn is 28% at one product, drops to 8%
-            at two, then jumps to 83% at three and 100% at four. If the line went one way you’d
-            get the familiar “more products, more sticky”. It doesn’t, so two products looks like
-            the healthy state and anything above it is a signal of something else going on.
-          </p>
-          <p>
-            <strong>Why segmentation and not a churn model.</strong> A logistic regression would
-            give a probability per customer and wouldn’t have taken long to fit. But the decision
-            here is where to point a budget, not who to call first, and the model would still
-            have had to clear that 79.6% baseline to earn its place.
+            Products held run the other way, and harder: 28% at one product, 8% at two, then 83%
+            at three and 100% at four. Two products looks like the healthy state.
           </p>
         </div>
       </div>
@@ -187,8 +175,7 @@
                  alt="Eight KPI tiles: churn rate 20.4% against a target of 15% or less; retention 79.6%; deposits under management €765M; deposits at risk €186M, 24% of all deposits; revenue at risk approximately €4.6M per year; active members 52%; average balance per customer €76K; high-balance churn 25.2% across 4,799 customers holding over €100K.">
           </div>
           <figcaption>
-            The dashboard’s KPI header. Every tile carries its target or its denominator, so no
-            number appears without something to compare it against.
+            The dashboard’s KPI header. Every tile carries its target or its denominator.
           </figcaption>
         </figure>
 
@@ -201,24 +188,19 @@
 
         <div class="prose">
           <p>
-            The concentration is what makes it actionable. The 4,799 customers holding more than
-            €100,000 churn at 25.2%, above the 20.4% average, so the deposit book leaks faster
-            than the customer count suggests. A retention effort aimed at Germany and at three-
-            and four-product holders reaches more of the money than of the people.
+            The 4,799 customers holding more than €100,000 churn at 25.2%, so the deposit book
+            leaks faster than the customer count suggests.
           </p>
           <p>
-            On this evidence I’d start there rather than with a broad campaign: Germany first,
-            then a review of what’s happening to customers who end up holding three or more
-            products, since that group churns almost completely.
+            I’d start with Germany, then look at what happens to customers who end up holding
+            three or more products — that group churns almost completely.
           </p>
         </div>
 
         <p class="case-caveat">
-          <strong>What this can’t show.</strong> The €4.6M revenue figure applies an illustrative
-          2.5% net interest margin. It gives a sense of scale; it isn’t the bank’s real margin.
-          The three- and four-product groups are also much smaller than the rest, so 83% and 100%
-          are directional. And this is a snapshot: it records who churned, not when, so it can’t
-          support any time-to-churn or survival claim.
+          The €4.6M revenue figure applies an illustrative 2.5% net interest margin, not the
+          bank’s real one. The three- and four-product groups are small, so 83% and 100% are
+          directional.
         </p>
       </div>
     </div>

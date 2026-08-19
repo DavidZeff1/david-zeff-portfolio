@@ -12,7 +12,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.david-zeff-portfolio.com/projects/coffee-shop-sales.html">
 <meta property="og:title" content="Coffee Shop Sales — David Zeff">
-<meta property="og:description" content="Every dollar of growth came from traffic. Basket size never moved.">
+<meta property="og:description" content="Revenue doubled on footfall alone. The AOV baseline was 27% too low.">
 <meta property="og:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Coffee Shop Sales — David Zeff">
-<meta name="twitter:description" content="Every dollar of growth came from traffic. Basket size never moved.">
+<meta name="twitter:description" content="Revenue doubled on footfall alone. The AOV baseline was 27% too low.">
 <meta name="twitter:image" content="https://www.david-zeff-portfolio.com/assets/og-image.png">
 
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
@@ -74,7 +74,7 @@
 
       <p class="case-eyebrow">Case study · Growth decomposition</p>
       <h1 class="case-title">Coffee Shop Sales</h1>
-      <p class="case-dek">Every dollar of growth came from traffic. Basket size never moved.</p>
+      <p class="case-dek">Revenue doubled on footfall alone. The AOV baseline was 27% too low.</p>
 
       <dl class="case-facts">
         <div class="case-fact">
@@ -100,10 +100,9 @@
           credits the new menu or the marketing, it’s worth checking which lever actually moved.
         </p>
         <p>
-          Revenue is Orders × Average Order Value, and those two come from completely different
-          places. More people through the door is a location, hours and awareness problem. A
-          bigger basket is a menu, pricing and upsell problem. Which one grew decides where the
-          next effort goes, and you can’t see it in a revenue chart.
+          Revenue is Orders × Average Order Value. More people through the door is a location and
+          hours problem; a bigger basket is a menu and pricing problem. Which one grew decides
+          where the next effort goes.
         </p>
       </div>
     </div>
@@ -119,17 +118,14 @@
           timestamp, store, product, unit price and quantity.
         </p>
         <p>
-          <strong>The grain was wrong, and it mattered.</strong> <code>transaction_id</code>
-          looks like an order ID and was being used as one. It isn’t — it identifies a
-          <em>line item</em>. A customer buying a latte and a croissant produces two
-          “transactions”. So average order value was coming out at $4.69 when the real figure,
-          after grouping lines back into orders, is <strong>$5.98</strong>. 27% higher.
+          <strong>The grain was wrong.</strong> <code>transaction_id</code> looks like an order ID
+          and was being used as one, but it identifies a <em>line item</em> — a customer buying a
+          latte and a croissant produces two “transactions”. Average order value was coming out at
+          $4.69; grouping the lines back into orders puts it at <strong>$5.98</strong>, 27% higher.
         </p>
         <p>
-          That kind of error can sit there for years, because $4.69 is a perfectly believable
-          average for a coffee shop. Nothing about it looks wrong. It only turns up if you check
-          what one row means before you divide by it, and until you do it quietly breaks every
-          metric with an order count underneath.
+          $4.69 is a believable average for a coffee shop, which is how an error like this sits in
+          a dashboard for years, quietly breaking every metric with an order count underneath.
         </p>
       </div>
     </div>
@@ -142,14 +138,12 @@
       <div data-reveal>
         <div class="prose">
           <p>
-            Split revenue into its two parts and look at each on its own:
-            Revenue = Orders × AOV.
+            Revenue = Orders × AOV. Split it, and look at each part on its own.
           </p>
           <p>
             Over the six months, <strong>orders grew 104%</strong> while
-            <strong>average order value moved −0.1%</strong>. One lever did all the work and the
-            other never moved. That changes the question from “why is revenue up” to “what’s
-            bringing more people in, and can we do more of it”.
+            <strong>average order value moved −0.1%</strong>. That turns “why is revenue up” into
+            “what’s bringing more people in, and can we do more of it”.
           </p>
           <p>
             The other correction was the time comparison. A straight month-over-month total makes
@@ -164,19 +158,10 @@
                  alt="Bar chart of revenue per trading day by month from January to June. February, highlighted in green, is slightly above January at about $2,700 per day, and the series then rises steadily to about $5,500 per day in June.">
           </div>
           <figcaption>
-            Revenue per trading day. Per day, February grew 3.2% — normalising for month length
-            flips the sign.
+            Revenue per trading day. Normalised for month length, February grew 3.2%.
           </figcaption>
         </figure>
 
-        <div class="prose">
-          <p>
-            <strong>Why split first, then segment.</strong> With revenue moving this much,
-            cutting by store, product or hour would have shown growth almost everywhere and
-            explained nothing. Splitting revenue first narrows it: once you know basket size is
-            flat, you can drop every basket-side cut and spend the time on traffic instead.
-          </p>
-        </div>
       </div>
     </div>
   </section>
@@ -194,10 +179,9 @@
 
         <div class="prose">
           <p>
-            Two things came out of it. The corrected AOV replaces $4.69 as the baseline for every
-            metric that divides by order count. And since all the growth came from footfall,
-            that’s where the effort should go — while anything aimed at raising basket size now
-            starts knowing that six months of trading didn’t move it at all.
+            The corrected AOV replaces $4.69 as the baseline for every metric that divides by
+            order count. And the effort belongs on footfall — six months of trading didn’t move
+            basket size at all.
           </p>
           <p>The traffic itself turns out to be heavily concentrated.</p>
         </div>
@@ -216,16 +200,15 @@
 
         <div class="prose">
           <p>
-            On this evidence I’d point staffing and counter throughput at those three hours
-            first, since that’s where a queue costs the most, and treat the quieter parts of the
-            day as a separate question rather than lumping them into one “grow revenue” target.
+            I’d point staffing and counter throughput at those three hours first, since that’s
+            where a queue costs the most, and treat the quieter parts of the day as a separate
+            question.
           </p>
         </div>
 
         <p class="case-caveat">
-          <strong>What this can’t show.</strong> Six months of trading from one business, with no
-          control period and no price history. The split describes what happened, not what caused
-          it — “traffic grew” says how the growth arrived, not where it came from.
+          Six months of trading from one business, with no control period and no price history.
+          The split describes how the growth arrived, not what caused it.
         </p>
       </div>
     </div>
